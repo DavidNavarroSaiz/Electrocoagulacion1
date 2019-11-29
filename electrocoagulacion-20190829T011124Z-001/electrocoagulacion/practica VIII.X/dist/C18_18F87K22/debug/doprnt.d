@@ -1,0 +1,1 @@
+ dist/C18_18F87K22/debug/doprnt.d  dist/C18_18F87K22/debug/doprnt.p1:  /opt/microchip/xc8/v1.38/sources/common/doprnt.c
