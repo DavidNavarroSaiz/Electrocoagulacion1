@@ -19752,10 +19752,32 @@ typedef uint16_t uintptr_t;
 # 15 "C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\c90\stdbool.h"
 typedef unsigned char bool;
 
-# 23 "interrupts.c"
+# 17 "interrupts.c"
+int AD_almacenado;
+char band_aux;
+
+# 25
 void interrupt isr(void)
 {
 
-# 50
+# 34
+if (INTCONbits.TMR0IF==1){
+
+INTCONbits.TMR0IF=0;
+LATAbits.LATA1 = !PORTAbits.RA1;
+ADCON0bits.GO= 1;
+band_aux= 1;
+}
+
+if (PIR1bits.ADIF==1){
+AD_almacenado= ADRES;
+PIR1bits.ADIF=0;
+
+
+}
+
+
+
+
 }
 

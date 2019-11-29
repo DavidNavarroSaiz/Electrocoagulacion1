@@ -1,4 +1,15 @@
 Version 3.2 HI-TECH Software Intermediate Code
+"2416 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1776.h
+[s S112 :2 `uc 1 :1 `uc 1 :4 `uc 1 :1 `uc 1 ]
+[n S112 . SCS . IRCF SPLLEN ]
+"2422
+[s S113 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S113 . SCS0 SCS1 . IRCF0 IRCF1 IRCF2 IRCF3 ]
+"2415
+[u S111 `S112 1 `S113 1 ]
+[n S111 . . . ]
+"2432
+[v _OSCCONbits `VS111 ~T0 @X0 0 e@155 ]
 [; ;xc.h: 18: extern const char __xc8_OPTIM_SPEED;
 [; ;xc.h: 20: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -13545,7 +13556,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;system.c: 19: {
 [e :U _ConfigureOscillator ]
 [f ]
-[; ;system.c: 25: }
-"25
+[; ;system.c: 21: OSCCONbits.IRCF= 1111;
+"21
+[e = . . _OSCCONbits 0 2 -> -> 1111 `i `uc ]
+[; ;system.c: 22: OSCCONbits.SCS= 0b11;
+"22
+[e = . . _OSCCONbits 0 0 -> -> 3 `i `uc ]
+[; ;system.c: 27: }
+"27
 [e :UE 1726 ]
 }

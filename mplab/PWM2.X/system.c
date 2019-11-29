@@ -18,8 +18,8 @@ oscillator configurations. */
 void ConfigureOscillator(void)
 {
     /* TODO Add clock switching code if appropriate.  */
-     OSCCONbits.IRCF=0b1111;//16MHz
-    OSCCONbits.SCS=0b11;//Oscilador Interno
+    OSCCONbits.IRCF= 1111;//16MHz
+    OSCCONbits.SCS= 0b11;//Oscilador Interno
 
     /* Typical actions in this function are to tweak the oscillator tuning
     register, select new clock sources, and to wait until new clock sources

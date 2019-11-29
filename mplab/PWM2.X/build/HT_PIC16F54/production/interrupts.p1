@@ -1,4 +1,52 @@
 Version 3.2 HI-TECH Software Intermediate Code
+"357 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1776.h
+[s S26 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S26 . IOCIF INTF TMR0IF IOCIE INTE TMR0IE PEIE GIE ]
+"367
+[s S27 :2 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
+[n S27 . . T0IF . T0IE ]
+"356
+[u S25 `S26 1 `S27 1 ]
+[n S25 . . . ]
+"374
+[v _INTCONbits `VS25 ~T0 @X0 0 e@11 ]
+"2679
+[s S123 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S123 . LATA0 LATA1 LATA2 LATA3 LATA4 LATA5 LATA6 LATA7 ]
+"2678
+[u S122 `S123 1 ]
+[n S122 . . ]
+"2690
+[v _LATAbits `VS122 ~T0 @X0 0 e@268 ]
+"435
+[s S29 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S29 . RA0 RA1 RA2 RA3 RA4 RA5 RA6 RA7 ]
+"434
+[u S28 `S29 1 ]
+[n S28 . . ]
+"446
+[v _PORTAbits `VS28 ~T0 @X0 0 e@12 ]
+"11372
+[s S548 :1 `uc 1 :1 `uc 1 :6 `uc 1 ]
+[n S548 . ADON GO CHS ]
+"11371
+[u S547 `S548 1 ]
+[n S547 . . ]
+"11378
+[v _ADCON0bits `VS547 ~T0 @X0 0 e@1168 ]
+"642
+[s S37 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S37 . TMR1IF TMR2IF CCP1IF SSP1IF TXIF RCIF ADIF TMR1GIF ]
+"652
+[s S38 :2 `uc 1 :1 `uc 1 ]
+[n S38 . . CCPIF ]
+"641
+[u S36 `S37 1 `S38 1 ]
+[n S36 . . . ]
+"657
+[v _PIR1bits `VS36 ~T0 @X0 0 e@17 ]
+"11319
+[v _ADRES `Vus ~T0 @X0 0 e@1166 ]
 [; ;xc.h: 18: extern const char __xc8_OPTIM_SPEED;
 [; ;xc.h: 20: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -13536,17 +13584,57 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdint.h: 289: typedef int16_t intptr_t;
 [; ;stdint.h: 294: typedef uint16_t uintptr_t;
 [; ;stdbool.h: 15: typedef unsigned char bool;
+"17 interrupts.c
+[v _AD_almacenado `i ~T0 @X0 1 e ]
+[; ;interrupts.c: 17: int AD_almacenado;
+"18
+[v _band_aux `uc ~T0 @X0 1 e ]
+[; ;interrupts.c: 18: char band_aux;
 [v $root$_isr `(v ~T0 @X0 0 e ]
-[v F11867 `(v ~T0 @X0 1 tf ]
-"23 interrupts.c
-[v _isr `IF11867 ~T0 @X0 1 e ]
-"24
+[v F11869 `(v ~T0 @X0 1 tf ]
+"25
+[v _isr `IF11869 ~T0 @X0 1 e ]
+"26
 {
-[; ;interrupts.c: 23: void interrupt isr(void)
-[; ;interrupts.c: 24: {
+[; ;interrupts.c: 25: void interrupt isr(void)
+[; ;interrupts.c: 26: {
 [e :U _isr ]
 [f ]
-[; ;interrupts.c: 50: }
-"50
+[; ;interrupts.c: 34: if (INTCONbits.TMR0IF==1){
+"34
+[e $ ! == -> . . _INTCONbits 0 2 `i -> 1 `i 1727  ]
+{
+[; ;interrupts.c: 36: INTCONbits.TMR0IF=0;
+"36
+[e = . . _INTCONbits 0 2 -> -> 0 `i `uc ]
+[; ;interrupts.c: 37: LATAbits.LATA1 = !PORTAbits.RA1;
+"37
+[e = . . _LATAbits 0 1 -> -> ! != -> . . _PORTAbits 0 1 `i -> -> -> 0 `i `Vuc `i `i `uc ]
+[; ;interrupts.c: 38: ADCON0bits.GO= 1;
+"38
+[e = . . _ADCON0bits 0 1 -> -> 1 `i `uc ]
+[; ;interrupts.c: 39: band_aux= 1;
+"39
+[e = _band_aux -> -> 1 `i `uc ]
+"40
+}
+[e :U 1727 ]
+[; ;interrupts.c: 40: }
+[; ;interrupts.c: 42: if (PIR1bits.ADIF==1){
+"42
+[e $ ! == -> . . _PIR1bits 0 6 `i -> 1 `i 1728  ]
+{
+[; ;interrupts.c: 43: AD_almacenado= ADRES;
+"43
+[e = _AD_almacenado -> _ADRES `i ]
+[; ;interrupts.c: 44: PIR1bits.ADIF=0;
+"44
+[e = . . _PIR1bits 0 6 -> -> 0 `i `uc ]
+"47
+}
+[e :U 1728 ]
+[; ;interrupts.c: 47: }
+[; ;interrupts.c: 52: }
+"52
 [e :UE 1726 ]
 }
