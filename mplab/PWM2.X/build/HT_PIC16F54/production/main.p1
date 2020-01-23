@@ -5,23 +5,15 @@ Version 3.2 HI-TECH Software Intermediate Code
 "13 user.h
 [v _InitApp `(v ~T0 @X0 0 ef ]
 "25 main.c
-[v _band_aux `uc ~T0 @X0 0 e ]
-"26
-[v _AD_almacenado `i ~T0 @X0 0 e ]
-"36
-[v _enviarTrama `(v ~T0 @X0 0 ef1`*uc ]
-"194 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\c90\stdio.h
-[v _sprintf `(i ~T0 @X0 0 e1v`*uc`*Cuc ]
-"4123 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1776.h
-[v _TX1REG `Vuc ~T0 @X0 0 e@410 ]
-"4503
-[s S228 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S228 . TX9D TRMT BRGH SENDB SYNC TXEN TX9 CSRC ]
-"4502
-[u S227 `S228 1 ]
-[n S227 . . ]
-"4514
-[v _TX1STAbits `VS227 ~T0 @X0 0 e@414 ]
+[v _band_aux `i ~T0 @X0 0 e ]
+"2679 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1776.h
+[s S123 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S123 . LATA0 LATA1 LATA2 LATA3 LATA4 LATA5 LATA6 LATA7 ]
+"2678
+[u S122 `S123 1 ]
+[n S122 . . ]
+"2690
+[v _LATAbits `VS122 ~T0 @X0 0 e@268 ]
 [; ;xc.h: 18: extern const char __xc8_OPTIM_SPEED;
 [; ;xc.h: 20: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -13694,7 +13686,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;math.h: 53: extern double fmod(double, double);
 [; ;math.h: 54: extern double trunc(double);
 [; ;math.h: 55: extern double round(double);
-[; ;main.c: 25: extern char band_aux;
+[; ;main.c: 25: extern int band_aux;
 [; ;main.c: 26: extern int AD_almacenado;
 "27 main.c
 [v _v_sensor `f ~T0 @X0 1 e ]
@@ -13729,121 +13721,50 @@ Version 3.2 HI-TECH Software Intermediate Code
 "30
 [v _salida `uc ~T0 @X0 -> 25 `i e ]
 [; ;main.c: 30: char salida [25];
-[; ;main.c: 36: void enviarTrama(char *datos);
+[; ;main.c: 37: void enviarTrama(char *datos);
 [v $root$_main `(v ~T0 @X0 0 e ]
-"37
-[v _main `(v ~T0 @X0 1 ef ]
 "38
+[v _main `(v ~T0 @X0 1 ef ]
+"39
 {
-[; ;main.c: 37: void main(void)
-[; ;main.c: 38: {
+[; ;main.c: 38: void main(void)
+[; ;main.c: 39: {
 [e :U _main ]
 [f ]
-[; ;main.c: 40: ConfigureOscillator();
-"40
+[; ;main.c: 41: ConfigureOscillator();
+"41
 [e ( _ConfigureOscillator ..  ]
-[; ;main.c: 43: InitApp();
-"43
+[; ;main.c: 44: InitApp();
+"44
 [e ( _InitApp ..  ]
-[; ;main.c: 46: while(1)
-"46
-[e :U 1733 ]
-[; ;main.c: 47: {
+[; ;main.c: 47: while(1)
 "47
+[e :U 1733 ]
+[; ;main.c: 48: {
+"48
 {
-[; ;main.c: 49: if (band_aux == 1){
+[; ;main.c: 49: if(band_aux == 8){
 "49
-[e $ ! == -> _band_aux `i -> 1 `i 1735  ]
+[e $ ! == _band_aux -> 8 `i 1735  ]
 {
-[; ;main.c: 50: v_sensor = (5000.*AD_almacenado)/1023;
-"50
-[e = _v_sensor -> / * .5000. -> _AD_almacenado `d -> -> 1023 `i `d `f ]
-[; ;main.c: 51: temp = (v_sensor/10)-3.8;
+[; ;main.c: 51: LATAbits.LATA1 = !LATAbits.LATA1;
 "51
-[e = _temp -> - -> / _v_sensor -> -> 10 `i `f `d .3.8 `f ]
-[; ;main.c: 52: band_aux = 0;
+[e = . . _LATAbits 0 1 -> -> ! != -> . . _LATAbits 0 1 `i -> -> -> 0 `i `Vuc `i `i `uc ]
+[; ;main.c: 52: band_aux=0;
 "52
-[e = _band_aux -> -> 0 `i `uc ]
-[; ;main.c: 54: enviarTrama(mensaje);
-"54
-[e ( _enviarTrama (1 -> &U _mensaje `*uc ]
-[; ;main.c: 55: sprintf(salida, "grados: %.1f C", temp);
-"55
-[e ( _sprintf (1 , (. , &U _salida :s 1C -> _temp `d ]
-[; ;main.c: 56: enviarTrama(salida);
-"56
-[e ( _enviarTrama (1 &U _salida ]
-"61
+[e = _band_aux -> 0 `i ]
+"53
 }
 [e :U 1735 ]
-"64
+"54
 }
 [e :U 1732 ]
-"46
+"47
 [e $U 1733  ]
 [e :U 1734 ]
-[; ;main.c: 61: }
-[; ;main.c: 64: }
-[; ;main.c: 67: }
-"67
+[; ;main.c: 53: }
+[; ;main.c: 54: }
+[; ;main.c: 90: }
+"90
 [e :UE 1731 ]
 }
-"69
-[v _enviarTrama `(v ~T0 @X0 1 ef1`*uc ]
-{
-[; ;main.c: 69: void enviarTrama(char *datos) {
-[e :U _enviarTrama ]
-[v _datos `*uc ~T0 @X0 1 r1 ]
-[f ]
-[; ;main.c: 73: while (*datos != 0) {
-"73
-[e $U 1737  ]
-[e :U 1738 ]
-{
-[; ;main.c: 74: TX1REG = *datos;
-"74
-[e = _TX1REG *U _datos ]
-[; ;main.c: 75: while (TX1STAbits.TRMT == 0);
-"75
-[e $U 1740  ]
-[e :U 1741 ]
-[e :U 1740 ]
-[e $ == -> . . _TX1STAbits 0 1 `i -> 0 `i 1741  ]
-[e :U 1742 ]
-[; ;main.c: 76: *datos++;
-"76
-[e *U ++ _datos * -> -> 1 `i `x -> -> # *U _datos `i `x ]
-"77
-}
-[e :U 1737 ]
-"73
-[e $ != -> *U _datos `i -> 0 `i 1738  ]
-[e :U 1739 ]
-[; ;main.c: 77: }
-[; ;main.c: 79: TX1REG = 0x0A;
-"79
-[e = _TX1REG -> -> 10 `i `uc ]
-[; ;main.c: 80: while (TX1STAbits.TRMT == 0);
-"80
-[e $U 1743  ]
-[e :U 1744 ]
-[e :U 1743 ]
-[e $ == -> . . _TX1STAbits 0 1 `i -> 0 `i 1744  ]
-[e :U 1745 ]
-[; ;main.c: 81: TX1REG = 0x0D;
-"81
-[e = _TX1REG -> -> 13 `i `uc ]
-[; ;main.c: 82: while (TX1STAbits.TRMT == 0);
-"82
-[e $U 1746  ]
-[e :U 1747 ]
-[e :U 1746 ]
-[e $ == -> . . _TX1STAbits 0 1 `i -> 0 `i 1747  ]
-[e :U 1748 ]
-[; ;main.c: 83: }
-"83
-[e :UE 1736 ]
-}
-[p f _sprintf 8462336 ]
-[a 1C 103 114 97 100 111 115 58 32 37 46 49 102 32 67 0 ]
-

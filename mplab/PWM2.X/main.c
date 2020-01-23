@@ -22,12 +22,13 @@
 /******************************************************************************/
 /* User Global Variable Declaration                                           */
 /******************************************************************************/
-extern char band_aux;
+extern int band_aux;
 extern int AD_almacenado;
 float v_sensor;// voltaje sensor por bit 
 float temp; //temperatura del sensor
 const char mensaje [] = "valor temp en C:" ;
 char salida [25];
+//extern int o ;
 /* i.e. uint8_t <variable_name>; */
 
 /******************************************************************************/
@@ -42,42 +43,48 @@ void main(void)
     /* Initialize I/O and Peripherals for application */
     InitApp();
 
-    
+//    
     while(1)
     {
-        /* TODO <INSERT USER APPLICATION CODE HERE> */
-        if (band_aux == 1){
-            v_sensor = (5000.*AD_almacenado)/1023;
-            temp = (v_sensor/10)-3.8;
-            band_aux = 0;
-            
-            enviarTrama(mensaje);
-            sprintf(salida, "grados: %.1f C", temp);
-            enviarTrama(salida);
-            
-            
-        
-        
-        }
-        
-        
+        if(band_aux == 8){
+             
+            LATAbits.LATA1 = !LATAbits.LATA1;//led visualizador del timer
+         band_aux=0;
+         }
     }
-    
-
-}
-
-void enviarTrama(char *datos) {
-
-    //saludo[0] = *datos:
-
-    while (*datos != 0) {
-        TX1REG = *datos;
-        while (TX1STAbits.TRMT == 0);
-        *datos++;
-    }
-
-    TX1REG = 0x0A;
-    while (TX1STAbits.TRMT == 0);
-    TX1REG = 0x0D;
-    while (TX1STAbits.TRMT == 0);
+//        /* TODO <INSERT USER APPLICATION CODE HERE> */
+//        if (band_aux == 1){
+//            v_sensor = (5000.*AD_almacenado)/1023;
+//            temp = (v_sensor/10)-3.8;
+//            band_aux = 0;
+//            
+//            enviarTrama(mensaje);
+//            sprintf(salida, "grados: %.1f C", temp);
+//            enviarTrama(salida);
+//            
+//            
+//        
+//        
+//        }
+//        
+//        
+//    }
+//    
+//
+//}
+//
+//void enviarTrama(char *datos) {
+//
+//    //saludo[0] = *datos:
+//
+//    while (*datos != 0) {
+//        TX1REG = *datos;
+//        while (TX1STAbits.TRMT == 0);
+//        *datos++;
+//    }
+//
+//    TX1REG = 0x0A;
+//    while (TX1STAbits.TRMT == 0);
+//    TX1REG = 0x0D;
+//    while (TX1STAbits.TRMT == 0);
 }

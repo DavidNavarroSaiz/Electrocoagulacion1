@@ -19754,7 +19754,7 @@ typedef unsigned char bool;
 
 # 17 "interrupts.c"
 int AD_almacenado;
-char band_aux;
+int band_aux = 2;
 
 # 25
 void interrupt isr(void)
@@ -19762,22 +19762,11 @@ void interrupt isr(void)
 
 # 34
 if (INTCONbits.TMR0IF==1){
-
+band_aux = band_aux + 1;
 INTCONbits.TMR0IF=0;
-LATAbits.LATA1 = !PORTAbits.RA1;
-ADCON0bits.GO= 1;
-band_aux= 1;
-}
-
-if (PIR1bits.ADIF==1){
-AD_almacenado= ADRES;
-PIR1bits.ADIF=0;
-
 
 }
 
-
-
-
+# 48
 }
 

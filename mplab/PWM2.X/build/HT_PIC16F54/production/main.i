@@ -19961,14 +19961,14 @@ extern double trunc(double);
 extern double round(double);
 
 # 25 "main.c"
-extern char band_aux;
+extern int band_aux;
 extern int AD_almacenado;
 float v_sensor;
 float temp;
 const char mensaje [] = "valor temp en C:" ;
 char salida [25];
 
-# 36
+# 37
 void enviarTrama(char *datos);
 void main(void)
 {
@@ -19981,39 +19981,12 @@ InitApp();
 
 while(1)
 {
+if(band_aux == 8){
 
-if (band_aux == 1){
-v_sensor = (5000.*AD_almacenado)/1023;
-temp = (v_sensor/10)-3.8;
-band_aux = 0;
-
-enviarTrama(mensaje);
-sprintf(salida, "grados: %.1f C", temp);
-enviarTrama(salida);
-
-
-
-
+LATAbits.LATA1 = !LATAbits.LATA1;
+band_aux=0;
+}
 }
 
-
-}
-
-
-}
-
-void enviarTrama(char *datos) {
-
-
-
-while (*datos != 0) {
-TX1REG = *datos;
-while (TX1STAbits.TRMT == 0);
-*datos++;
-}
-
-TX1REG = 0x0A;
-while (TX1STAbits.TRMT == 0);
-TX1REG = 0x0D;
-while (TX1STAbits.TRMT == 0);
+# 90
 }
