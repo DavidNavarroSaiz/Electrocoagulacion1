@@ -19764,9 +19764,20 @@ void interrupt isr(void)
 if (INTCONbits.TMR0IF==1){
 band_aux = band_aux + 1;
 INTCONbits.TMR0IF=0;
+}
+
+
+
+
+if (PIR1bits.ADIF==1){
+AD_almacenado= ADRES;
+PIR1bits.ADIF=0;
+
 
 }
 
-# 48
+
+
+
 }
 

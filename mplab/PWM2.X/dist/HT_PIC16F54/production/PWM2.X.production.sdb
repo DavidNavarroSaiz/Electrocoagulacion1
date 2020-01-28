@@ -9,8 +9,14 @@
 [v __Umul8_16 _Umul8_16 `(ui  1 e 2 0 ]
 "25 C:\Users\david\Desktop\INGENIERIA FISICA ¡\Electrocoagulacion\Electrocoagulacion1\Electrocoagulacion1\mplab\PWM2.X\interrupts.c
 [v _isr isr `II(v  1 e 1 0 ]
-"38 C:\Users\david\Desktop\INGENIERIA FISICA ¡\Electrocoagulacion\Electrocoagulacion1\Electrocoagulacion1\mplab\PWM2.X\main.c
+"57 C:\Users\david\Desktop\INGENIERIA FISICA ¡\Electrocoagulacion\Electrocoagulacion1\Electrocoagulacion1\mplab\PWM2.X\main.c
 [v _main main `(v  1 e 1 0 ]
+"111
+[v _enviarTrama enviarTrama `(v  1 e 1 0 ]
+"130
+[v _UART_send_char UART_send_char `(v  1 e 1 0 ]
+"141
+[v _UART_send_string UART_send_string `(v  1 e 1 0 ]
 "18 C:\Users\david\Desktop\INGENIERIA FISICA ¡\Electrocoagulacion\Electrocoagulacion1\Electrocoagulacion1\mplab\PWM2.X\system.c
 [v _ConfigureOscillator ConfigureOscillator `(v  1 e 1 0 ]
 "22 C:\Users\david\Desktop\INGENIERIA FISICA ¡\Electrocoagulacion\Electrocoagulacion1\Electrocoagulacion1\mplab\PWM2.X\user.c
@@ -32,7 +38,22 @@
 ]
 [u S36 . 1 `S22 1 . 1 0 `S31 1 . 1 0 ]
 [v _INTCONbits INTCONbits `VES36  1 e 1 @11 ]
-[s S155 . 1 `uc 1 TRISA0 1 0 :1:0 
+[s S54 . 1 `uc 1 TMR1IF 1 0 :1:0 
+`uc 1 TMR2IF 1 0 :1:1 
+`uc 1 CCP1IF 1 0 :1:2 
+`uc 1 SSP1IF 1 0 :1:3 
+`uc 1 TXIF 1 0 :1:4 
+`uc 1 RCIF 1 0 :1:5 
+`uc 1 ADIF 1 0 :1:6 
+`uc 1 TMR1GIF 1 0 :1:7 
+]
+"657
+[s S63 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 CCPIF 1 0 :1:2 
+]
+[u S66 . 1 `S54 1 . 1 0 `S63 1 . 1 0 ]
+[v _PIR1bits PIR1bits `VES66  1 e 1 @17 ]
+[s S265 . 1 `uc 1 TRISA0 1 0 :1:0 
 `uc 1 TRISA1 1 0 :1:1 
 `uc 1 TRISA2 1 0 :1:2 
 `uc 1 TRISA3 1 0 :1:3 
@@ -42,9 +63,9 @@
 `uc 1 TRISA7 1 0 :1:7 
 ]
 "1652
-[u S164 . 1 `S155 1 . 1 0 ]
-[v _TRISAbits TRISAbits `VES164  1 e 1 @140 ]
-[s S214 . 1 `uc 1 TRISC0 1 0 :1:0 
+[u S274 . 1 `S265 1 . 1 0 ]
+[v _TRISAbits TRISAbits `VES274  1 e 1 @140 ]
+[s S324 . 1 `uc 1 TRISC0 1 0 :1:0 
 `uc 1 TRISC1 1 0 :1:1 
 `uc 1 TRISC2 1 0 :1:2 
 `uc 1 TRISC3 1 0 :1:3 
@@ -54,9 +75,9 @@
 `uc 1 TRISC7 1 0 :1:7 
 ]
 "1776
-[u S223 . 1 `S214 1 . 1 0 ]
-[v _TRISCbits TRISCbits `VES223  1 e 1 @142 ]
-[s S295 . 1 `uc 1 TMR1IE 1 0 :1:0 
+[u S333 . 1 `S324 1 . 1 0 ]
+[v _TRISCbits TRISCbits `VES333  1 e 1 @142 ]
+[s S405 . 1 `uc 1 TMR1IE 1 0 :1:0 
 `uc 1 TMR2IE 1 0 :1:1 
 `uc 1 CCP1IE 1 0 :1:2 
 `uc 1 SSP1IE 1 0 :1:3 
@@ -66,12 +87,12 @@
 `uc 1 TMR1GIE 1 0 :1:7 
 ]
 "1863
-[s S304 . 1 `uc 1 . 1 0 :2:0 
+[s S414 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 CCPIE 1 0 :1:2 
 ]
-[u S307 . 1 `S295 1 . 1 0 `S304 1 . 1 0 ]
-[v _PIE1bits PIE1bits `VES307  1 e 1 @145 ]
-[s S349 . 1 `uc 1 PS 1 0 :3:0 
+[u S417 . 1 `S405 1 . 1 0 `S414 1 . 1 0 ]
+[v _PIE1bits PIE1bits `VES417  1 e 1 @145 ]
+[s S455 . 1 `uc 1 PS 1 0 :3:0 
 `uc 1 PSA 1 0 :1:3 
 `uc 1 TMR0SE 1 0 :1:4 
 `uc 1 TMR0CS 1 0 :1:5 
@@ -79,22 +100,22 @@
 `uc 1 nWPUEN 1 0 :1:7 
 ]
 "2176
-[s S356 . 1 `uc 1 PS0 1 0 :1:0 
+[s S462 . 1 `uc 1 PS0 1 0 :1:0 
 `uc 1 PS1 1 0 :1:1 
 `uc 1 PS2 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
 `uc 1 T0SE 1 0 :1:4 
 `uc 1 T0CS 1 0 :1:5 
 ]
-[u S363 . 1 `S349 1 . 1 0 `S356 1 . 1 0 ]
-[v _OPTION_REGbits OPTION_REGbits `VES363  1 e 1 @151 ]
-[s S117 . 1 `uc 1 SCS 1 0 :2:0 
+[u S469 . 1 `S455 1 . 1 0 `S462 1 . 1 0 ]
+[v _OPTION_REGbits OPTION_REGbits `VES469  1 e 1 @151 ]
+[s S227 . 1 `uc 1 SCS 1 0 :2:0 
 `uc 1 . 1 0 :1:2 
 `uc 1 IRCF 1 0 :4:3 
 `uc 1 SPLLEN 1 0 :1:7 
 ]
 "2432
-[s S122 . 1 `uc 1 SCS0 1 0 :1:0 
+[s S232 . 1 `uc 1 SCS0 1 0 :1:0 
 `uc 1 SCS1 1 0 :1:1 
 `uc 1 . 1 0 :1:2 
 `uc 1 IRCF0 1 0 :1:3 
@@ -102,11 +123,11 @@
 `uc 1 IRCF2 1 0 :1:5 
 `uc 1 IRCF3 1 0 :1:6 
 ]
-[u S130 . 1 `S117 1 . 1 0 `S122 1 . 1 0 ]
-[v _OSCCONbits OSCCONbits `VES130  1 e 1 @155 ]
+[u S240 . 1 `S227 1 . 1 0 `S232 1 . 1 0 ]
+[v _OSCCONbits OSCCONbits `VES240  1 e 1 @155 ]
 "2673
 [v _LATA LATA `VEuc  1 e 1 @268 ]
-[s S79 . 1 `uc 1 LATA0 1 0 :1:0 
+[s S136 . 1 `uc 1 LATA0 1 0 :1:0 
 `uc 1 LATA1 1 0 :1:1 
 `uc 1 LATA2 1 0 :1:2 
 `uc 1 LATA3 1 0 :1:3 
@@ -116,13 +137,13 @@
 `uc 1 LATA7 1 0 :1:7 
 ]
 "2690
-[u S88 . 1 `S79 1 . 1 0 ]
-[v _LATAbits LATAbits `VES88  1 e 1 @268 ]
+[u S145 . 1 `S136 1 . 1 0 ]
+[v _LATAbits LATAbits `VES145  1 e 1 @268 ]
 "2735
 [v _LATB LATB `VEuc  1 e 1 @269 ]
 "2797
 [v _LATC LATC `VEuc  1 e 1 @270 ]
-[s S176 . 1 `uc 1 ANSA0 1 0 :1:0 
+[s S286 . 1 `uc 1 ANSA0 1 0 :1:0 
 `uc 1 ANSA1 1 0 :1:1 
 `uc 1 ANSA2 1 0 :1:2 
 `uc 1 ANSA3 1 0 :1:3 
@@ -130,9 +151,9 @@
 `uc 1 ANSA5 1 0 :1:5 
 ]
 "3737
-[u S183 . 1 `S176 1 . 1 0 ]
-[v _ANSELAbits ANSELAbits `VES183  1 e 1 @396 ]
-[s S235 . 1 `uc 1 . 1 0 :2:0 
+[u S293 . 1 `S286 1 . 1 0 ]
+[v _ANSELAbits ANSELAbits `VES293  1 e 1 @396 ]
+[s S345 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 ANSC2 1 0 :1:2 
 `uc 1 ANSC3 1 0 :1:3 
 `uc 1 ANSC4 1 0 :1:4 
@@ -141,11 +162,17 @@
 `uc 1 ANSC7 1 0 :1:7 
 ]
 "3838
-[u S243 . 1 `S235 1 . 1 0 ]
-[v _ANSELCbits ANSELCbits `VES243  1 e 1 @398 ]
+[u S353 . 1 `S345 1 . 1 0 ]
+[v _ANSELCbits ANSELCbits `VES353  1 e 1 @398 ]
+"4074
+[v _RCREG RCREG `VEuc  1 e 1 @409 ]
+"4123
+[v _TX1REG TX1REG `VEuc  1 e 1 @410 ]
+"4132
+[v _TXREG TXREG `VEuc  1 e 1 @410 ]
 "4177
 [v _SP1BRG SP1BRG `VEus  1 e 2 @411 ]
-[s S424 . 1 `uc 1 RX9D 1 0 :1:0 
+[s S521 . 1 `uc 1 RX9D 1 0 :1:0 
 `uc 1 OERR 1 0 :1:1 
 `uc 1 FERR 1 0 :1:2 
 `uc 1 ADDEN 1 0 :1:3 
@@ -155,9 +182,9 @@
 `uc 1 SPEN 1 0 :1:7 
 ]
 "4334
-[u S433 . 1 `S424 1 . 1 0 ]
-[v _RC1STAbits RC1STAbits `VES433  1 e 1 @413 ]
-[s S402 . 1 `uc 1 TX9D 1 0 :1:0 
+[u S530 . 1 `S521 1 . 1 0 ]
+[v _RC1STAbits RC1STAbits `VES530  1 e 1 @413 ]
+[s S168 . 1 `uc 1 TX9D 1 0 :1:0 
 `uc 1 TRMT 1 0 :1:1 
 `uc 1 BRGH 1 0 :1:2 
 `uc 1 SENDB 1 0 :1:3 
@@ -167,9 +194,9 @@
 `uc 1 CSRC 1 0 :1:7 
 ]
 "4514
-[u S411 . 1 `S402 1 . 1 0 ]
-[v _TX1STAbits TX1STAbits `VES411  1 e 1 @414 ]
-[s S381 . 1 `uc 1 ABDEN 1 0 :1:0 
+[u S177 . 1 `S168 1 . 1 0 ]
+[v _TX1STAbits TX1STAbits `VES177  1 e 1 @414 ]
+[s S487 . 1 `uc 1 ABDEN 1 0 :1:0 
 `uc 1 WUE 1 0 :1:1 
 `uc 1 . 1 0 :1:2 
 `uc 1 BRG16 1 0 :1:3 
@@ -179,9 +206,9 @@
 `uc 1 ABDOVF 1 0 :1:7 
 ]
 "4702
-[u S390 . 1 `S381 1 . 1 0 ]
-[v _BAUD1CONbits BAUD1CONbits `VES390  1 e 1 @415 ]
-[s S193 . 1 `uc 1 WPUA0 1 0 :1:0 
+[u S496 . 1 `S487 1 . 1 0 ]
+[v _BAUD1CONbits BAUD1CONbits `VES496  1 e 1 @415 ]
+[s S303 . 1 `uc 1 WPUA0 1 0 :1:0 
 `uc 1 WPUA1 1 0 :1:1 
 `uc 1 WPUA2 1 0 :1:2 
 `uc 1 WPUA3 1 0 :1:3 
@@ -191,9 +218,9 @@
 `uc 1 WPUA7 1 0 :1:7 
 ]
 "4931
-[u S202 . 1 `S193 1 . 1 0 ]
-[v _WPUAbits WPUAbits `VES202  1 e 1 @524 ]
-[s S254 . 1 `uc 1 WPUC0 1 0 :1:0 
+[u S312 . 1 `S303 1 . 1 0 ]
+[v _WPUAbits WPUAbits `VES312  1 e 1 @524 ]
+[s S364 . 1 `uc 1 WPUC0 1 0 :1:0 
 `uc 1 WPUC1 1 0 :1:1 
 `uc 1 WPUC2 1 0 :1:2 
 `uc 1 WPUC3 1 0 :1:3 
@@ -203,39 +230,74 @@
 `uc 1 WPUC7 1 0 :1:7 
 ]
 "5055
-[u S263 . 1 `S254 1 . 1 0 ]
-[v _WPUCbits WPUCbits `VES263  1 e 1 @526 ]
-[s S338 . 1 `uc 1 ADON 1 0 :1:0 
+[u S373 . 1 `S364 1 . 1 0 ]
+[v _WPUCbits WPUCbits `VES373  1 e 1 @526 ]
+"11319
+[v _ADRES ADRES `VEus  1 e 2 @1166 ]
+[s S125 . 1 `uc 1 ADON 1 0 :1:0 
 `uc 1 GO 1 0 :1:1 
 `uc 1 CHS 1 0 :6:2 
 ]
 "11378
-[u S342 . 1 `S338 1 . 1 0 ]
-[v _ADCON0bits ADCON0bits `VES342  1 e 1 @1168 ]
-[s S323 . 1 `uc 1 ADPREF 1 0 :2:0 
+[u S129 . 1 `S125 1 . 1 0 ]
+[v _ADCON0bits ADCON0bits `VES129  1 e 1 @1168 ]
+[s S433 . 1 `uc 1 ADPREF 1 0 :2:0 
 `uc 1 ADNREF 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
 `uc 1 ADCS 1 0 :3:4 
 `uc 1 ADFM 1 0 :1:7 
 ]
 "11412
-[u S329 . 1 `S323 1 . 1 0 ]
-[v _ADCON1bits ADCON1bits `VES329  1 e 1 @1169 ]
+[u S439 . 1 `S433 1 . 1 0 ]
+[v _ADCON1bits ADCON1bits `VES439  1 e 1 @1169 ]
 "32733
 [v _RXPPS RXPPS `VEuc  1 e 1 @3645 ]
 "33213
 [v _RC6PPS RC6PPS `VEuc  1 e 1 @3750 ]
-"18 C:\Users\david\Desktop\INGENIERIA FISICA ¡\Electrocoagulacion\Electrocoagulacion1\Electrocoagulacion1\mplab\PWM2.X\interrupts.c
+"38486
+"38486
+[v _CREN CREN `VEb  1 e 0 @3308 ]
+"41822
+[v _OERR OERR `VEb  1 e 0 @3305 ]
+"43115
+[v _RCIF RCIF `VEb  1 e 0 @141 ]
+"44273
+[v _TXIF TXIF `VEb  1 e 0 @140 ]
+"17 C:\Users\david\Desktop\INGENIERIA FISICA ¡\Electrocoagulacion\Electrocoagulacion1\Electrocoagulacion1\mplab\PWM2.X\interrupts.c
+[v _AD_almacenado AD_almacenado `i  1 e 2 0 ]
+"18
 [v _band_aux band_aux `i  1 e 2 0 ]
-"38 C:\Users\david\Desktop\INGENIERIA FISICA ¡\Electrocoagulacion\Electrocoagulacion1\Electrocoagulacion1\mplab\PWM2.X\main.c
+"29 C:\Users\david\Desktop\INGENIERIA FISICA ¡\Electrocoagulacion\Electrocoagulacion1\Electrocoagulacion1\mplab\PWM2.X\main.c
+[v _mensaje mensaje `DC[2]uc  1 e 2 0 ]
+"57
 [v _main main `(v  1 e 1 0 ]
 {
-"90
+"110
+} 0
+"111
+[v _enviarTrama enviarTrama `(v  1 e 1 0 ]
+{
+[v enviarTrama@datos datos `*.25uc  1 p 2 0 ]
+"126
+} 0
+"141
+[v _UART_send_string UART_send_string `(v  1 e 1 0 ]
+{
+[v UART_send_string@st_pt st_pt `*.25uc  1 p 2 1 ]
+"145
+} 0
+"130
+[v _UART_send_char UART_send_char `(v  1 e 1 0 ]
+{
+[v UART_send_char@bt bt `uc  1 a 1 wreg ]
+[v UART_send_char@bt bt `uc  1 a 1 wreg ]
+[v UART_send_char@bt bt `uc  1 a 1 0 ]
+"134
 } 0
 "22 C:\Users\david\Desktop\INGENIERIA FISICA ¡\Electrocoagulacion\Electrocoagulacion1\Electrocoagulacion1\mplab\PWM2.X\user.c
 [v _InitApp InitApp `(v  1 e 1 0 ]
 {
-"83
+"84
 } 0
 "18 C:\Users\david\Desktop\INGENIERIA FISICA ¡\Electrocoagulacion\Electrocoagulacion1\Electrocoagulacion1\mplab\PWM2.X\system.c
 [v _ConfigureOscillator ConfigureOscillator `(v  1 e 1 0 ]
@@ -245,5 +307,5 @@
 "25 C:\Users\david\Desktop\INGENIERIA FISICA ¡\Electrocoagulacion\Electrocoagulacion1\Electrocoagulacion1\mplab\PWM2.X\interrupts.c
 [v _isr isr `II(v  1 e 1 0 ]
 {
-"48
+"52
 } 0

@@ -1,12 +1,30 @@
 Version 3.2 HI-TECH Software Intermediate Code
+"41822 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1776.h
+[v _OERR `Vb ~T0 @X0 0 e@3305 ]
+"38486
+[v _CREN `Vb ~T0 @X0 0 e@3308 ]
+"43115
+[v _RCIF `Vb ~T0 @X0 0 e@141 ]
+"4074
+[v _RCREG `Vuc ~T0 @X0 0 e@409 ]
 [p mainexit ]
 "19 system.h
 [v _ConfigureOscillator `(v ~T0 @X0 0 ef ]
 "13 user.h
 [v _InitApp `(v ~T0 @X0 0 ef ]
-"25 main.c
+"38 main.c
+[v _enviarTrama `(v ~T0 @X0 0 ef1`*uc ]
+"25
 [v _band_aux `i ~T0 @X0 0 e ]
-"2679 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1776.h
+"11372 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1776.h
+[s S548 :1 `uc 1 :1 `uc 1 :6 `uc 1 ]
+[n S548 . ADON GO CHS ]
+"11371
+[u S547 `S548 1 ]
+[n S547 . . ]
+"11378
+[v _ADCON0bits `VS547 ~T0 @X0 0 e@1168 ]
+"2679
 [s S123 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S123 . LATA0 LATA1 LATA2 LATA3 LATA4 LATA5 LATA6 LATA7 ]
 "2678
@@ -14,6 +32,24 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S122 . . ]
 "2690
 [v _LATAbits `VS122 ~T0 @X0 0 e@268 ]
+"40 main.c
+[v _UART_send_string `(v ~T0 @X0 0 ef1`*uc ]
+"39
+[v _UART_send_char `(v ~T0 @X0 0 ef1`uc ]
+"4123 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1776.h
+[v _TX1REG `Vuc ~T0 @X0 0 e@410 ]
+"4503
+[s S228 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S228 . TX9D TRMT BRGH SENDB SYNC TXEN TX9 CSRC ]
+"4502
+[u S227 `S228 1 ]
+[n S227 . . ]
+"4514
+[v _TX1STAbits `VS227 ~T0 @X0 0 e@414 ]
+"44273
+[v _TXIF `Vb ~T0 @X0 0 e@140 ]
+"4132
+[v _TXREG `Vuc ~T0 @X0 0 e@410 ]
 [; ;xc.h: 18: extern const char __xc8_OPTIM_SPEED;
 [; ;xc.h: 20: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -13698,73 +13734,220 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _mensaje `Cuc ~T0 @X0 -> 0 `x e ]
 [i _mensaje
 :U ..
--> 118 `c
--> 97 `c
--> 108 `c
--> 111 `c
--> 114 `c
--> 32 `c
--> 116 `c
--> 101 `c
--> 109 `c
--> 112 `c
--> 32 `c
--> 101 `c
--> 110 `c
--> 32 `c
--> 67 `c
--> 58 `c
+-> 49 `c
 -> 0 `c
 ..
 ]
-[; ;main.c: 29: const char mensaje [] = "valor temp en C:" ;
+[; ;main.c: 29: const char mensaje [] = "1" ;
 "30
 [v _salida `uc ~T0 @X0 -> 25 `i e ]
 [; ;main.c: 30: char salida [25];
-[; ;main.c: 37: void enviarTrama(char *datos);
-[v $root$_main `(v ~T0 @X0 0 e ]
-"38
-[v _main `(v ~T0 @X0 1 ef ]
-"39
-{
-[; ;main.c: 38: void main(void)
-[; ;main.c: 39: {
-[e :U _main ]
-[f ]
-[; ;main.c: 41: ConfigureOscillator();
-"41
-[e ( _ConfigureOscillator ..  ]
-[; ;main.c: 44: InitApp();
+[; ;main.c: 38: void enviarTrama(char *datos);
+[; ;main.c: 39: void UART_send_char(char bt);
+[; ;main.c: 40: void UART_send_string(char* st_pt);
+"43
+[v _UART_get_char `(uc ~T0 @X0 1 ef ]
 "44
-[e ( _InitApp ..  ]
-[; ;main.c: 47: while(1)
+{
+[; ;main.c: 43: char UART_get_char()
+[; ;main.c: 44: {
+[e :U _UART_get_char ]
+[f ]
+[; ;main.c: 45: if(OERR)
+"45
+[e $ ! _OERR 1732  ]
+[; ;main.c: 46: {
+"46
+{
+[; ;main.c: 47: CREN = 0;
 "47
-[e :U 1733 ]
-[; ;main.c: 48: {
+[e = _CREN -> -> 0 `i `b ]
+[; ;main.c: 48: CREN = 1;
 "48
-{
-[; ;main.c: 49: if(band_aux == 8){
+[e = _CREN -> -> 1 `i `b ]
 "49
-[e $ ! == _band_aux -> 8 `i 1735  ]
-{
-[; ;main.c: 51: LATAbits.LATA1 = !LATAbits.LATA1;
-"51
-[e = . . _LATAbits 0 1 -> -> ! != -> . . _LATAbits 0 1 `i -> -> -> 0 `i `Vuc `i `i `uc ]
-[; ;main.c: 52: band_aux=0;
-"52
-[e = _band_aux -> 0 `i ]
-"53
-}
-[e :U 1735 ]
-"54
 }
 [e :U 1732 ]
-"47
+[; ;main.c: 49: }
+[; ;main.c: 51: while(!RCIF);
+"51
 [e $U 1733  ]
 [e :U 1734 ]
-[; ;main.c: 53: }
+[e :U 1733 ]
+[e $ ! _RCIF 1734  ]
+[e :U 1735 ]
+[; ;main.c: 53: return RCREG;
+"53
+[e ) _RCREG ]
+[e $UE 1731  ]
 [; ;main.c: 54: }
-[; ;main.c: 90: }
-"90
+"54
 [e :UE 1731 ]
 }
+[v $root$_main `(v ~T0 @X0 0 e ]
+"57
+[v _main `(v ~T0 @X0 1 ef ]
+"58
+{
+[; ;main.c: 57: void main(void)
+[; ;main.c: 58: {
+[e :U _main ]
+[f ]
+[; ;main.c: 60: ConfigureOscillator();
+"60
+[e ( _ConfigureOscillator ..  ]
+[; ;main.c: 63: InitApp();
+"63
+[e ( _InitApp ..  ]
+[; ;main.c: 64: enviarTrama(mensaje);
+"64
+[e ( _enviarTrama (1 -> &U _mensaje `*uc ]
+[; ;main.c: 66: while(1)
+"66
+[e :U 1738 ]
+[; ;main.c: 67: {
+"67
+{
+[; ;main.c: 68: if(band_aux == 8){
+"68
+[e $ ! == _band_aux -> 8 `i 1740  ]
+{
+[; ;main.c: 72: band_aux=0;
+"72
+[e = _band_aux -> 0 `i ]
+[; ;main.c: 73: ADCON0bits.GO= 1;
+"73
+[e = . . _ADCON0bits 0 1 -> -> 1 `i `uc ]
+[; ;main.c: 76: LATAbits.LATA1 = !LATAbits.LATA1;
+"76
+[e = . . _LATAbits 0 1 -> -> ! != -> . . _LATAbits 0 1 `i -> -> -> 0 `i `Vuc `i `i `uc ]
+[; ;main.c: 78: UART_send_string("1a a");
+"78
+[e ( _UART_send_string (1 -> :s 1C `*uc ]
+[; ;main.c: 79: UART_send_char(10);
+"79
+[e ( _UART_send_char (1 -> -> 10 `i `uc ]
+"86
+}
+[e :U 1740 ]
+"88
+}
+[e :U 1737 ]
+"66
+[e $U 1738  ]
+[e :U 1739 ]
+[; ;main.c: 86: }
+[; ;main.c: 88: }
+[; ;main.c: 110: }
+"110
+[e :UE 1736 ]
+}
+"111
+[v _enviarTrama `(v ~T0 @X0 1 ef1`*uc ]
+{
+[; ;main.c: 111: void enviarTrama(char *datos) {
+[e :U _enviarTrama ]
+[v _datos `*uc ~T0 @X0 1 r1 ]
+[f ]
+[; ;main.c: 115: while (*datos != 0) {
+"115
+[e $U 1742  ]
+[e :U 1743 ]
+{
+[; ;main.c: 116: TX1REG = *datos;
+"116
+[e = _TX1REG *U _datos ]
+[; ;main.c: 118: while (TX1STAbits.TRMT == 0);
+"118
+[e $U 1745  ]
+[e :U 1746 ]
+[e :U 1745 ]
+[e $ == -> . . _TX1STAbits 0 1 `i -> 0 `i 1746  ]
+[e :U 1747 ]
+[; ;main.c: 119: *datos++;
+"119
+[e *U ++ _datos * -> -> 1 `i `x -> -> # *U _datos `i `x ]
+"120
+}
+[e :U 1742 ]
+"115
+[e $ != -> *U _datos `i -> 0 `i 1743  ]
+[e :U 1744 ]
+[; ;main.c: 120: }
+[; ;main.c: 122: TX1REG = 0x0A;
+"122
+[e = _TX1REG -> -> 10 `i `uc ]
+[; ;main.c: 123: while (TX1STAbits.TRMT == 0);
+"123
+[e $U 1748  ]
+[e :U 1749 ]
+[e :U 1748 ]
+[e $ == -> . . _TX1STAbits 0 1 `i -> 0 `i 1749  ]
+[e :U 1750 ]
+[; ;main.c: 124: TX1REG = 0x0D;
+"124
+[e = _TX1REG -> -> 13 `i `uc ]
+[; ;main.c: 125: while (TX1STAbits.TRMT == 0);
+"125
+[e $U 1751  ]
+[e :U 1752 ]
+[e :U 1751 ]
+[e $ == -> . . _TX1STAbits 0 1 `i -> 0 `i 1752  ]
+[e :U 1753 ]
+[; ;main.c: 126: }
+"126
+[e :UE 1741 ]
+}
+"130
+[v _UART_send_char `(v ~T0 @X0 1 ef1`uc ]
+"131
+{
+[; ;main.c: 130: void UART_send_char(char bt)
+[; ;main.c: 131: {
+[e :U _UART_send_char ]
+"130
+[v _bt `uc ~T0 @X0 1 r1 ]
+"131
+[f ]
+[; ;main.c: 132: while(!TXIF);
+"132
+[e $U 1755  ]
+[e :U 1756 ]
+[e :U 1755 ]
+[e $ ! _TXIF 1756  ]
+[e :U 1757 ]
+[; ;main.c: 133: TXREG = bt;
+"133
+[e = _TXREG _bt ]
+[; ;main.c: 134: }
+"134
+[e :UE 1754 ]
+}
+"141
+[v _UART_send_string `(v ~T0 @X0 1 ef1`*uc ]
+"142
+{
+[; ;main.c: 141: void UART_send_string(char* st_pt)
+[; ;main.c: 142: {
+[e :U _UART_send_string ]
+"141
+[v _st_pt `*uc ~T0 @X0 1 r1 ]
+"142
+[f ]
+[; ;main.c: 143: while(*st_pt)
+"143
+[e $U 1759  ]
+[e :U 1760 ]
+[; ;main.c: 144: UART_send_char(*st_pt++);
+"144
+[e ( _UART_send_char (1 *U ++ _st_pt * -> -> 1 `i `x -> -> # *U _st_pt `i `x ]
+[e :U 1759 ]
+"143
+[e $ != -> *U _st_pt `i -> -> -> 0 `i `uc `i 1760  ]
+[e :U 1761 ]
+[; ;main.c: 145: }
+"145
+[e :UE 1758 ]
+}
+[a 1C 49 97 32 97 0 ]
+

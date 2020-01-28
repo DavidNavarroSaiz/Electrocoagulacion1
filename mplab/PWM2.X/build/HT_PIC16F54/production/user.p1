@@ -13771,22 +13771,22 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;user.c: 74: TX1STAbits.SYNC= 0;
 "74
 [e = . . _TX1STAbits 0 4 -> -> 0 `i `uc ]
-[; ;user.c: 75: SP1BRG = 25;
-"75
+[; ;user.c: 76: SP1BRG = 25;
+"76
 [e = _SP1BRG -> -> 25 `i `us ]
-[; ;user.c: 77: RC1STAbits.SPEN=1;
-"77
-[e = . . _RC1STAbits 0 7 -> -> 1 `i `uc ]
-[; ;user.c: 78: TX1STAbits.TX9=0;
+[; ;user.c: 78: RC1STAbits.SPEN=1;
 "78
-[e = . . _TX1STAbits 0 6 -> -> 0 `i `uc ]
-[; ;user.c: 79: TX1STAbits.TXEN=1;
+[e = . . _RC1STAbits 0 7 -> -> 1 `i `uc ]
+[; ;user.c: 79: TX1STAbits.TX9=0;
 "79
+[e = . . _TX1STAbits 0 6 -> -> 0 `i `uc ]
+[; ;user.c: 80: TX1STAbits.TXEN=1;
+"80
 [e = . . _TX1STAbits 0 5 -> -> 1 `i `uc ]
-[; ;user.c: 82: RC1STAbits.CREN=1;
-"82
-[e = . . _RC1STAbits 0 4 -> -> 1 `i `uc ]
-[; ;user.c: 83: }
+[; ;user.c: 83: RC1STAbits.CREN=1;
 "83
+[e = . . _RC1STAbits 0 4 -> -> 1 `i `uc ]
+[; ;user.c: 84: }
+"84
 [e :UE 1726 ]
 }

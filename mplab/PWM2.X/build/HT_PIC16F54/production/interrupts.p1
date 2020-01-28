@@ -10,6 +10,19 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S25 . . . ]
 "374
 [v _INTCONbits `VS25 ~T0 @X0 0 e@11 ]
+"642
+[s S37 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S37 . TMR1IF TMR2IF CCP1IF SSP1IF TXIF RCIF ADIF TMR1GIF ]
+"652
+[s S38 :2 `uc 1 :1 `uc 1 ]
+[n S38 . . CCPIF ]
+"641
+[u S36 `S37 1 `S38 1 ]
+[n S36 . . . ]
+"657
+[v _PIR1bits `VS36 ~T0 @X0 0 e@17 ]
+"11319
+[v _ADRES `Vus ~T0 @X0 0 e@1166 ]
 [; ;xc.h: 18: extern const char __xc8_OPTIM_SPEED;
 [; ;xc.h: 20: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -13576,11 +13589,25 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;interrupts.c: 36: INTCONbits.TMR0IF=0;
 "36
 [e = . . _INTCONbits 0 2 -> -> 0 `i `uc ]
-"38
+"37
 }
 [e :U 1727 ]
-[; ;interrupts.c: 38: }
-[; ;interrupts.c: 48: }
-"48
+[; ;interrupts.c: 37: }
+[; ;interrupts.c: 42: if (PIR1bits.ADIF==1){
+"42
+[e $ ! == -> . . _PIR1bits 0 6 `i -> 1 `i 1728  ]
+{
+[; ;interrupts.c: 43: AD_almacenado= ADRES;
+"43
+[e = _AD_almacenado -> _ADRES `i ]
+[; ;interrupts.c: 44: PIR1bits.ADIF=0;
+"44
+[e = . . _PIR1bits 0 6 -> -> 0 `i `uc ]
+"47
+}
+[e :U 1728 ]
+[; ;interrupts.c: 47: }
+[; ;interrupts.c: 52: }
+"52
 [e :UE 1726 ]
 }

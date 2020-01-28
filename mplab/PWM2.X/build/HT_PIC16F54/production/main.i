@@ -19965,11 +19965,29 @@ extern int band_aux;
 extern int AD_almacenado;
 float v_sensor;
 float temp;
-const char mensaje [] = "valor temp en C:" ;
+const char mensaje [] = "1" ;
 char salida [25];
 
-# 37
+# 38
 void enviarTrama(char *datos);
+void UART_send_char(char bt);
+void UART_send_string(char* st_pt);
+
+
+char UART_get_char()
+{
+if(OERR)
+{
+CREN = 0;
+CREN = 1;
+}
+
+while(!RCIF);
+
+return RCREG;
+}
+
+
 void main(void)
 {
 
@@ -19977,16 +19995,59 @@ ConfigureOscillator();
 
 
 InitApp();
-
+enviarTrama(mensaje);
 
 while(1)
 {
 if(band_aux == 8){
 
-LATAbits.LATA1 = !LATAbits.LATA1;
+
+
 band_aux=0;
-}
+ADCON0bits.GO= 1;
+
+
+LATAbits.LATA1 = !LATAbits.LATA1;
+
+UART_send_string("1a a");
+UART_send_char(10);
+
+# 86
 }
 
-# 90
 }
+
+# 110
+}
+void enviarTrama(char *datos) {
+
+
+
+while (*datos != 0) {
+TX1REG = *datos;
+
+while (TX1STAbits.TRMT == 0);
+*datos++;
+}
+
+TX1REG = 0x0A;
+while (TX1STAbits.TRMT == 0);
+TX1REG = 0x0D;
+while (TX1STAbits.TRMT == 0);
+}
+
+
+
+void UART_send_char(char bt)
+{
+while(!TXIF);
+TXREG = bt;
+}
+
+# 141
+void UART_send_string(char* st_pt)
+{
+while(*st_pt)
+UART_send_char(*st_pt++);
+}
+

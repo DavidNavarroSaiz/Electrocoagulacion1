@@ -34,23 +34,22 @@ void interrupt isr(void)
      if (INTCONbits.TMR0IF==1){  
          band_aux = band_aux + 1;
          INTCONbits.TMR0IF=0; //baja la bandera del timer0
-         
          }
-//         ADCON0bits.GO= 1; //Inicia la conversion AD
+         
 //         
 //     }
 //    /* Determine which flag generated the interrupt */
-//     if (PIR1bits.ADIF==1){
-//        AD_almacenado= ADRES;
-//        PIR1bits.ADIF=0;
-//     
+     if (PIR1bits.ADIF==1){
+        AD_almacenado= ADRES;
+        PIR1bits.ADIF=0;
+     
 //     
      }
 //    
 
 
 
-//}
+}
 #endif
 
          
