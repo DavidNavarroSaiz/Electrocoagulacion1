@@ -15,8 +15,8 @@
 /* Interrupt Routines                                                         */
 /******************************************************************************/
 int AD_almacenado;
-int band_aux = 2;
-
+char band_aux;
+int led;
 /* Baseline devices don't have interrupts. Note that some PIC16's 
  * are baseline devices.  Unfortunately the baseline detection macro is 
  * _PIC12 */
@@ -32,24 +32,28 @@ void interrupt isr(void)
     
     /* TODO Add interrupt routine code here. */
      if (INTCONbits.TMR0IF==1){  
-         band_aux = band_aux + 1;
-         INTCONbits.TMR0IF=0; //baja la bandera del timer0
-         }
          
-//         
-//     }
-//    /* Determine which flag generated the interrupt */
-     if (PIR1bits.ADIF==1){
-        AD_almacenado= ADRES;
-        PIR1bits.ADIF=0;
-     
-//     
+         INTCONbits.TMR0IF=0; //baja la bandera del timer0
+         led= led+1;
+         ADCON0bits.GO= 0; //Inicia la conversion AD
+         band_aux= 1;
+              if(led>1){
+                LATAbits.LATA1= ~LATAbits.LATA1;
+                led=0;
+                }
      }
-//    
+    /* Determine which flag generated the interrupt */
+//     if (PIR1bits.ADIF==1){
+////        AD_almacenado= ADRES;
+//        PIR1bits.ADIF=0;
+//     
+     
+     }
+    
 
 
 
-}
+//}
 #endif
 
-         
+
