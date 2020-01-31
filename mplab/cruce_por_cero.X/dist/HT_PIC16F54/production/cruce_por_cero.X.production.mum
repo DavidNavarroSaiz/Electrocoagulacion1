@@ -1,0 +1,16 @@
+
+Memory Summary:
+<<<<<<< HEAD:mplab/cruce_por_cero.X/dist/HT_PIC16F54/production/cruce_por_cero.X.production.mum
+    Program space        used    4Dh (    77) of  1000h words   (  1.9%)
+    Data space           used     2h (     2) of   200h bytes   (  0.4%)
+    EEPROM space         None available
+    Data stack space     used     0h (     0) of   1F0h bytes   (  0.0%)
+=======
+    Program space        used   111h (   273) of  2000h words   (  3.3%)
+    Data space           used    2Bh (    43) of   400h bytes   (  4.2%)
+    EEPROM space         None available
+    Data stack space     used     0h (     0) of   3D3h bytes   (  0.0%)
+>>>>>>> 71361698203d77675d1f395872d50384b7bb7a5b:mplab/PWM2.X/dist/HT_PIC16F54/production/PWM2.X.production.mum
+    Configuration bits   used     2h (     2) of     2h words   (100.0%)
+    ID Location space    used     0h (     0) of     4h bytes   (  0.0%)
+
