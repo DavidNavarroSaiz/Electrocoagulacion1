@@ -19722,27 +19722,28 @@ TRISBbits.TRISB1 = 0;
 TRISBbits.TRISB0 = 0;
 
 
-_delay((unsigned long)((15)*(20000000/4000.0)));
+_delay((unsigned long)((15)*(16000000/4000.0)));
+
 LATBbits.LATB1 = 0;
 lcdPinWrite(0x00);
 lcdPinWrite(0x03);
 lcdClockSignal();
-_delay((unsigned long)((5)*(20000000/4000.0)));
+_delay((unsigned long)((5)*(16000000/4000.0)));
 
 lcdPinWrite(0x00);
 lcdPinWrite(0x03);
 lcdClockSignal();
-_delay((unsigned long)((170)*(20000000/4000000.0)));
+_delay((unsigned long)((170)*(16000000/4000000.0)));
 
 lcdPinWrite(0x00);
 lcdPinWrite(0x03);
 lcdClockSignal();
-_delay((unsigned long)((5)*(20000000/4000.0)));
+_delay((unsigned long)((5)*(16000000/4000.0)));
 
 lcdPinWrite(0x00);
 lcdPinWrite(0x02);
 lcdClockSignal();
-_delay((unsigned long)((170)*(20000000/4000000.0)));
+_delay((unsigned long)((170)*(16000000/4000000.0)));
 
 lcdWrite(0x08);
 lcdWrite(0x28);
@@ -19755,14 +19756,14 @@ timerLCD = 0;
 
 }
 
-# 90
+# 91
 void lcdHome(void) {
 LATBbits.LATB1 = 0;
 lcdWrite(0x02);
-_delay((unsigned long)((4)*(20000000/4000.0)));
+_delay((unsigned long)((4)*(16000000/4000.0)));
 }
 
-# 99
+# 100
 void lcdClockSignal(void) {
 LATBbits.LATB0 = 1;
 
@@ -19770,14 +19771,14 @@ LATBbits.LATB0 = 0;
 
 }
 
-# 110
+# 111
 void lcdClear(void) {
 LATBbits.LATB1 = 0;
 lcdWrite(0x01);
-_delay((unsigned long)((4)*(20000000/4000.0)));
+_delay((unsigned long)((4)*(16000000/4000.0)));
 }
 
-# 120
+# 121
 void lcdMoveCursorTo(unsigned char posicion) {
 LATBbits.LATB1 = 0;
 
@@ -19785,10 +19786,10 @@ LATBbits.LATB1 = 0;
 
 
 lcdWrite((0x80 + posicion));
-_delay((unsigned long)((4)*(20000000/4000.0)));
+_delay((unsigned long)((4)*(16000000/4000.0)));
 }
 
-# 135
+# 136
 void lcdPinWrite(char reg) {
 lcd_register value;
 LATBbits.LATB5 = 0;
@@ -19804,7 +19805,7 @@ if (value.lcd_DBS.pinDB6 == 1) LATBbits.LATB3 = 1;
 if (value.lcd_DBS.pinDB7 == 1) LATBbits.LATB2 = 1;
 }
 
-# 153
+# 154
 void lcdWrite(char character) {
 char variable_up;
 char variable_low;
@@ -19819,10 +19820,10 @@ lcdClockSignal();
 
 lcdPinWrite(variable_low);
 lcdClockSignal();
-_delay((unsigned long)((1)*(20000000/4000.0)));
+_delay((unsigned long)((1)*(16000000/4000.0)));
 }
 
-# 173
+# 174
 void lcdWriteNumber(char numero) {
 LATBbits.LATB1 = 1;
 switch (numero) {
@@ -19861,7 +19862,7 @@ break;
 }
 }
 
-# 214
+# 215
 void lcdCursorOnOff(unsigned char onOff) {
 LATBbits.LATB1 = 0;
 
@@ -19872,7 +19873,7 @@ lcdWrite(0x0F);
 }
 }
 
-# 227
+# 228
 void lcdWriteMessage(const char * message) {
 LATBbits.LATB1 = 1;
 while (*message) {
@@ -19880,7 +19881,7 @@ lcdWrite(*message++);
 }
 }
 
-# 243
+# 244
 void lcdWriteDecimal(signed int value, char ubicacion) {
 signed char signo;
 char millar, centena, decena, unidad;
@@ -19929,7 +19930,7 @@ lcdWrite('.');
 lcdWriteNumber(unidad);
 }
 
-# 299
+# 300
 void lcdWrite1digi(char value, char ubicacion) {
 char unidad;
 
@@ -19940,7 +19941,7 @@ lcdMoveCursorTo(ubicacion);
 lcdWriteNumber(unidad);
 }
 
-# 316
+# 317
 void lcdWrite2digi(char value, char ubicacion) {
 char unidad, decena;
 
@@ -19953,7 +19954,7 @@ lcdWriteNumber(decena);
 lcdWriteNumber(unidad);
 }
 
-# 335
+# 336
 void lcdWrite3digi(signed int value, char ubicacion) {
 char unidad, decena;
 signed int centena;
@@ -19975,7 +19976,7 @@ lcdWriteNumber(decena);
 lcdWriteNumber(unidad);
 }
 
-# 363
+# 364
 void lcdWrite4digi(signed int value, char ubicacion) {
 char unidad, decena, centena;
 signed int unMil;

@@ -19755,7 +19755,10 @@ typedef uint16_t uintptr_t;
 # 15 "C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\c90\stdbool.h"
 typedef unsigned char bool;
 
-# 23 "interrupts.c"
+# 17 "interrupts.c"
+extern int led;
+
+# 23
 void interrupt isr(void)
 {
 
@@ -19764,15 +19767,24 @@ if (PIR3bits.ZCDIF == 1){
 if (LATAbits.LATA1==1){
 
 PIR3bits.ZCDIF=0;
-LATAbits.LATA1 = 0 ;
+
 }
 else{
 PIR3bits.ZCDIF=0;
-LATAbits.LATA1=1;
+
 
 }
 }
 
 
+if (INTCONbits.TMR0IF==1){
+
+INTCONbits.TMR0IF=0;
+led= led+1;
+
+
+}
+
+# 58
 }
 

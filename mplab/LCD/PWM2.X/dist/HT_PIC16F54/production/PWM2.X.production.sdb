@@ -11,33 +11,35 @@
 [v ___fladd __fladd `(d  1 e 4 0 ]
 "4 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\Umul8_16.c
 [v __Umul8_16 _Umul8_16 `(ui  1 e 2 0 ]
-"25 C:\Users\david\Desktop\PWM2.X\interrupts.c
+"25 C:\Users\david\Desktop\INGENIERIA FISICA ¡\Electrocoagulacion\Electrocoagulacion1\Electrocoagulacion1\mplab\LCD\PWM2.X\interrupts.c
 [v _isr isr `II(v  1 e 1 0 ]
-"43 C:\Users\david\Desktop\PWM2.X\LcdDriver.c
+"43 C:\Users\david\Desktop\INGENIERIA FISICA ¡\Electrocoagulacion\Electrocoagulacion1\Electrocoagulacion1\mplab\LCD\PWM2.X\LcdDriver.c
 [v _initLCD initLCD `(v  1 e 1 0 ]
-"90
+"91
 [v _lcdHome lcdHome `(v  1 e 1 0 ]
-"99
+"100
 [v _lcdClockSignal lcdClockSignal `(v  1 e 1 0 ]
-"110
+"111
 [v _lcdClear lcdClear `(v  1 e 1 0 ]
-"120
+"121
 [v _lcdMoveCursorTo lcdMoveCursorTo `(v  1 e 1 0 ]
-"135
+"136
 [v _lcdPinWrite lcdPinWrite `(v  1 e 1 0 ]
-"153
+"154
 [v _lcdWrite lcdWrite `(v  1 e 1 0 ]
-"173
+"174
 [v _lcdWriteNumber lcdWriteNumber `(v  1 e 1 0 ]
-"227
+"228
 [v _lcdWriteMessage lcdWriteMessage `(v  1 e 1 0 ]
-"41 C:\Users\david\Desktop\PWM2.X\main.c
+"41 C:\Users\david\Desktop\INGENIERIA FISICA ¡\Electrocoagulacion\Electrocoagulacion1\Electrocoagulacion1\mplab\LCD\PWM2.X\main.c
 [v _main main `(v  1 e 1 0 ]
-"18 C:\Users\david\Desktop\PWM2.X\system.c
+"92
+[v _enviarTrama enviarTrama `(v  1 e 1 0 ]
+"18 C:\Users\david\Desktop\INGENIERIA FISICA ¡\Electrocoagulacion\Electrocoagulacion1\Electrocoagulacion1\mplab\LCD\PWM2.X\system.c
 [v _ConfigureOscillator ConfigureOscillator `(v  1 e 1 0 ]
-"22 C:\Users\david\Desktop\PWM2.X\user.c
+"22 C:\Users\david\Desktop\INGENIERIA FISICA ¡\Electrocoagulacion\Electrocoagulacion1\Electrocoagulacion1\mplab\LCD\PWM2.X\user.c
 [v _InitApp InitApp `(v  1 e 1 0 ]
-[s S221 . 1 `uc 1 IOCIF 1 0 :1:0 
+[s S267 . 1 `uc 1 IOCIF 1 0 :1:0 
 `uc 1 INTF 1 0 :1:1 
 `uc 1 TMR0IF 1 0 :1:2 
 `uc 1 IOCIE 1 0 :1:3 
@@ -47,14 +49,14 @@
 `uc 1 GIE 1 0 :1:7 
 ]
 "374 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1776.h
-[s S230 . 1 `uc 1 . 1 0 :2:0 
+[s S276 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 T0IF 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 T0IE 1 0 :1:5 
 ]
-[u S235 . 1 `S221 1 . 1 0 `S230 1 . 1 0 ]
-[v _INTCONbits INTCONbits `VES235  1 e 1 @11 ]
-[s S99 . 1 `uc 1 TRISA0 1 0 :1:0 
+[u S281 . 1 `S267 1 . 1 0 `S276 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES281  1 e 1 @11 ]
+[s S145 . 1 `uc 1 TRISA0 1 0 :1:0 
 `uc 1 TRISA1 1 0 :1:1 
 `uc 1 TRISA2 1 0 :1:2 
 `uc 1 TRISA3 1 0 :1:3 
@@ -64,11 +66,11 @@
 `uc 1 TRISA7 1 0 :1:7 
 ]
 "1652
-[u S108 . 1 `S99 1 . 1 0 ]
-[v _TRISAbits TRISAbits `VES108  1 e 1 @140 ]
+[u S154 . 1 `S145 1 . 1 0 ]
+[v _TRISAbits TRISAbits `VES154  1 e 1 @140 ]
 "1697
 [v _TRISB TRISB `VEuc  1 e 1 @141 ]
-[s S509 . 1 `uc 1 TRISB0 1 0 :1:0 
+[s S538 . 1 `uc 1 TRISB0 1 0 :1:0 
 `uc 1 TRISB1 1 0 :1:1 
 `uc 1 TRISB2 1 0 :1:2 
 `uc 1 TRISB3 1 0 :1:3 
@@ -78,9 +80,9 @@
 `uc 1 TRISB7 1 0 :1:7 
 ]
 "1714
-[u S518 . 1 `S509 1 . 1 0 ]
-[v _TRISBbits TRISBbits `VES518  1 e 1 @141 ]
-[s S158 . 1 `uc 1 TRISC0 1 0 :1:0 
+[u S547 . 1 `S538 1 . 1 0 ]
+[v _TRISBbits TRISBbits `VES547  1 e 1 @141 ]
+[s S204 . 1 `uc 1 TRISC0 1 0 :1:0 
 `uc 1 TRISC1 1 0 :1:1 
 `uc 1 TRISC2 1 0 :1:2 
 `uc 1 TRISC3 1 0 :1:3 
@@ -90,9 +92,9 @@
 `uc 1 TRISC7 1 0 :1:7 
 ]
 "1776
-[u S167 . 1 `S158 1 . 1 0 ]
-[v _TRISCbits TRISCbits `VES167  1 e 1 @142 ]
-[s S253 . 1 `uc 1 TMR1IE 1 0 :1:0 
+[u S213 . 1 `S204 1 . 1 0 ]
+[v _TRISCbits TRISCbits `VES213  1 e 1 @142 ]
+[s S299 . 1 `uc 1 TMR1IE 1 0 :1:0 
 `uc 1 TMR2IE 1 0 :1:1 
 `uc 1 CCP1IE 1 0 :1:2 
 `uc 1 SSP1IE 1 0 :1:3 
@@ -102,12 +104,12 @@
 `uc 1 TMR1GIE 1 0 :1:7 
 ]
 "1863
-[s S262 . 1 `uc 1 . 1 0 :2:0 
+[s S308 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 CCPIE 1 0 :1:2 
 ]
-[u S265 . 1 `S253 1 . 1 0 `S262 1 . 1 0 ]
-[v _PIE1bits PIE1bits `VES265  1 e 1 @145 ]
-[s S307 . 1 `uc 1 PS 1 0 :3:0 
+[u S311 . 1 `S299 1 . 1 0 `S308 1 . 1 0 ]
+[v _PIE1bits PIE1bits `VES311  1 e 1 @145 ]
+[s S353 . 1 `uc 1 PS 1 0 :3:0 
 `uc 1 PSA 1 0 :1:3 
 `uc 1 TMR0SE 1 0 :1:4 
 `uc 1 TMR0CS 1 0 :1:5 
@@ -115,22 +117,22 @@
 `uc 1 nWPUEN 1 0 :1:7 
 ]
 "2176
-[s S314 . 1 `uc 1 PS0 1 0 :1:0 
+[s S360 . 1 `uc 1 PS0 1 0 :1:0 
 `uc 1 PS1 1 0 :1:1 
 `uc 1 PS2 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
 `uc 1 T0SE 1 0 :1:4 
 `uc 1 T0CS 1 0 :1:5 
 ]
-[u S321 . 1 `S307 1 . 1 0 `S314 1 . 1 0 ]
-[v _OPTION_REGbits OPTION_REGbits `VES321  1 e 1 @151 ]
-[s S59 . 1 `uc 1 SCS 1 0 :2:0 
+[u S367 . 1 `S353 1 . 1 0 `S360 1 . 1 0 ]
+[v _OPTION_REGbits OPTION_REGbits `VES367  1 e 1 @151 ]
+[s S105 . 1 `uc 1 SCS 1 0 :2:0 
 `uc 1 . 1 0 :1:2 
 `uc 1 IRCF 1 0 :4:3 
 `uc 1 SPLLEN 1 0 :1:7 
 ]
 "2432
-[s S64 . 1 `uc 1 SCS0 1 0 :1:0 
+[s S110 . 1 `uc 1 SCS0 1 0 :1:0 
 `uc 1 SCS1 1 0 :1:1 
 `uc 1 . 1 0 :1:2 
 `uc 1 IRCF0 1 0 :1:3 
@@ -138,13 +140,13 @@
 `uc 1 IRCF2 1 0 :1:5 
 `uc 1 IRCF3 1 0 :1:6 
 ]
-[u S72 . 1 `S59 1 . 1 0 `S64 1 . 1 0 ]
-[v _OSCCONbits OSCCONbits `VES72  1 e 1 @155 ]
+[u S118 . 1 `S105 1 . 1 0 `S110 1 . 1 0 ]
+[v _OSCCONbits OSCCONbits `VES118  1 e 1 @155 ]
 "2673
 [v _LATA LATA `VEuc  1 e 1 @268 ]
 "2735
 [v _LATB LATB `VEuc  1 e 1 @269 ]
-[s S532 . 1 `uc 1 LATB0 1 0 :1:0 
+[s S565 . 1 `uc 1 LATB0 1 0 :1:0 
 `uc 1 LATB1 1 0 :1:1 
 `uc 1 LATB2 1 0 :1:2 
 `uc 1 LATB3 1 0 :1:3 
@@ -154,11 +156,11 @@
 `uc 1 LATB7 1 0 :1:7 
 ]
 "2752
-[u S541 . 1 `S532 1 . 1 0 ]
-[v _LATBbits LATBbits `VES541  1 e 1 @269 ]
+[u S574 . 1 `S565 1 . 1 0 ]
+[v _LATBbits LATBbits `VES574  1 e 1 @269 ]
 "2797
 [v _LATC LATC `VEuc  1 e 1 @270 ]
-[s S120 . 1 `uc 1 ANSA0 1 0 :1:0 
+[s S166 . 1 `uc 1 ANSA0 1 0 :1:0 
 `uc 1 ANSA1 1 0 :1:1 
 `uc 1 ANSA2 1 0 :1:2 
 `uc 1 ANSA3 1 0 :1:3 
@@ -166,11 +168,11 @@
 `uc 1 ANSA5 1 0 :1:5 
 ]
 "3737
-[u S127 . 1 `S120 1 . 1 0 ]
-[v _ANSELAbits ANSELAbits `VES127  1 e 1 @396 ]
+[u S173 . 1 `S166 1 . 1 0 ]
+[v _ANSELAbits ANSELAbits `VES173  1 e 1 @396 ]
 "3772
 [v _ANSELB ANSELB `VEuc  1 e 1 @397 ]
-[s S179 . 1 `uc 1 . 1 0 :2:0 
+[s S225 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 ANSC2 1 0 :1:2 
 `uc 1 ANSC3 1 0 :1:3 
 `uc 1 ANSC4 1 0 :1:4 
@@ -179,11 +181,13 @@
 `uc 1 ANSC7 1 0 :1:7 
 ]
 "3838
-[u S187 . 1 `S179 1 . 1 0 ]
-[v _ANSELCbits ANSELCbits `VES187  1 e 1 @398 ]
+[u S233 . 1 `S225 1 . 1 0 ]
+[v _ANSELCbits ANSELCbits `VES233  1 e 1 @398 ]
+"4123
+[v _TX1REG TX1REG `VEuc  1 e 1 @410 ]
 "4177
 [v _SP1BRG SP1BRG `VEus  1 e 2 @411 ]
-[s S382 . 1 `uc 1 RX9D 1 0 :1:0 
+[s S419 . 1 `uc 1 RX9D 1 0 :1:0 
 `uc 1 OERR 1 0 :1:1 
 `uc 1 FERR 1 0 :1:2 
 `uc 1 ADDEN 1 0 :1:3 
@@ -193,9 +197,9 @@
 `uc 1 SPEN 1 0 :1:7 
 ]
 "4334
-[u S391 . 1 `S382 1 . 1 0 ]
-[v _RC1STAbits RC1STAbits `VES391  1 e 1 @413 ]
-[s S360 . 1 `uc 1 TX9D 1 0 :1:0 
+[u S428 . 1 `S419 1 . 1 0 ]
+[v _RC1STAbits RC1STAbits `VES428  1 e 1 @413 ]
+[s S66 . 1 `uc 1 TX9D 1 0 :1:0 
 `uc 1 TRMT 1 0 :1:1 
 `uc 1 BRGH 1 0 :1:2 
 `uc 1 SENDB 1 0 :1:3 
@@ -205,9 +209,9 @@
 `uc 1 CSRC 1 0 :1:7 
 ]
 "4514
-[u S369 . 1 `S360 1 . 1 0 ]
-[v _TX1STAbits TX1STAbits `VES369  1 e 1 @414 ]
-[s S339 . 1 `uc 1 ABDEN 1 0 :1:0 
+[u S75 . 1 `S66 1 . 1 0 ]
+[v _TX1STAbits TX1STAbits `VES75  1 e 1 @414 ]
+[s S385 . 1 `uc 1 ABDEN 1 0 :1:0 
 `uc 1 WUE 1 0 :1:1 
 `uc 1 . 1 0 :1:2 
 `uc 1 BRG16 1 0 :1:3 
@@ -217,9 +221,9 @@
 `uc 1 ABDOVF 1 0 :1:7 
 ]
 "4702
-[u S348 . 1 `S339 1 . 1 0 ]
-[v _BAUD1CONbits BAUD1CONbits `VES348  1 e 1 @415 ]
-[s S137 . 1 `uc 1 WPUA0 1 0 :1:0 
+[u S394 . 1 `S385 1 . 1 0 ]
+[v _BAUD1CONbits BAUD1CONbits `VES394  1 e 1 @415 ]
+[s S183 . 1 `uc 1 WPUA0 1 0 :1:0 
 `uc 1 WPUA1 1 0 :1:1 
 `uc 1 WPUA2 1 0 :1:2 
 `uc 1 WPUA3 1 0 :1:3 
@@ -229,9 +233,9 @@
 `uc 1 WPUA7 1 0 :1:7 
 ]
 "4931
-[u S146 . 1 `S137 1 . 1 0 ]
-[v _WPUAbits WPUAbits `VES146  1 e 1 @524 ]
-[s S198 . 1 `uc 1 WPUC0 1 0 :1:0 
+[u S192 . 1 `S183 1 . 1 0 ]
+[v _WPUAbits WPUAbits `VES192  1 e 1 @524 ]
+[s S244 . 1 `uc 1 WPUC0 1 0 :1:0 
 `uc 1 WPUC1 1 0 :1:1 
 `uc 1 WPUC2 1 0 :1:2 
 `uc 1 WPUC3 1 0 :1:3 
@@ -241,104 +245,122 @@
 `uc 1 WPUC7 1 0 :1:7 
 ]
 "5055
-[u S207 . 1 `S198 1 . 1 0 ]
-[v _WPUCbits WPUCbits `VES207  1 e 1 @526 ]
-[s S296 . 1 `uc 1 ADON 1 0 :1:0 
+[u S253 . 1 `S244 1 . 1 0 ]
+[v _WPUCbits WPUCbits `VES253  1 e 1 @526 ]
+[s S342 . 1 `uc 1 ADON 1 0 :1:0 
 `uc 1 GO 1 0 :1:1 
 `uc 1 CHS 1 0 :6:2 
 ]
 "11378
-[u S300 . 1 `S296 1 . 1 0 ]
-[v _ADCON0bits ADCON0bits `VES300  1 e 1 @1168 ]
-[s S281 . 1 `uc 1 ADPREF 1 0 :2:0 
+[u S346 . 1 `S342 1 . 1 0 ]
+[v _ADCON0bits ADCON0bits `VES346  1 e 1 @1168 ]
+[s S327 . 1 `uc 1 ADPREF 1 0 :2:0 
 `uc 1 ADNREF 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
 `uc 1 ADCS 1 0 :3:4 
 `uc 1 ADFM 1 0 :1:7 
 ]
 "11412
-[u S287 . 1 `S281 1 . 1 0 ]
-[v _ADCON1bits ADCON1bits `VES287  1 e 1 @1169 ]
+[u S333 . 1 `S327 1 . 1 0 ]
+[v _ADCON1bits ADCON1bits `VES333  1 e 1 @1169 ]
 "32733
 [v _RXPPS RXPPS `VEuc  1 e 1 @3645 ]
 "33213
 [v _RC6PPS RC6PPS `VEuc  1 e 1 @3750 ]
-"33 C:\Users\david\Desktop\PWM2.X\LcdDriver.c
+"33 C:\Users\david\Desktop\INGENIERIA FISICA ¡\Electrocoagulacion\Electrocoagulacion1\Electrocoagulacion1\mplab\LCD\PWM2.X\LcdDriver.c
 [v _timerLCD timerLCD `VEuc  1 e 1 0 ]
-"41 C:\Users\david\Desktop\PWM2.X\main.c
+"31 C:\Users\david\Desktop\INGENIERIA FISICA ¡\Electrocoagulacion\Electrocoagulacion1\Electrocoagulacion1\mplab\LCD\PWM2.X\main.c
+[v _mensaje mensaje `DC[7]uc  1 e 7 0 ]
+"41
 [v _main main `(v  1 e 1 0 ]
 {
-"85
+"57
+[v main@i i `i  1 a 2 12 ]
+"90
 } 0
-"227 C:\Users\david\Desktop\PWM2.X\LcdDriver.c
+"228 C:\Users\david\Desktop\INGENIERIA FISICA ¡\Electrocoagulacion\Electrocoagulacion1\Electrocoagulacion1\mplab\LCD\PWM2.X\LcdDriver.c
 [v _lcdWriteMessage lcdWriteMessage `(v  1 e 1 0 ]
 {
 [v lcdWriteMessage@message message `*.25DCuc  1 p 2 8 ]
-"232
+"233
+} 0
+"121
+[v _lcdMoveCursorTo lcdMoveCursorTo `(v  1 e 1 0 ]
+{
+[v lcdMoveCursorTo@posicion posicion `uc  1 a 1 wreg ]
+[v lcdMoveCursorTo@posicion posicion `uc  1 a 1 wreg ]
+[v lcdMoveCursorTo@posicion posicion `uc  1 a 1 9 ]
+"129
 } 0
 "43
 [v _initLCD initLCD `(v  1 e 1 0 ]
 {
-"84
+"85
 } 0
-"90
+"91
 [v _lcdHome lcdHome `(v  1 e 1 0 ]
 {
-"94
+"95
 } 0
-"110
+"111
 [v _lcdClear lcdClear `(v  1 e 1 0 ]
 {
-"114
+"115
 } 0
-"153
+"154
 [v _lcdWrite lcdWrite `(v  1 e 1 0 ]
 {
 [v lcdWrite@character character `uc  1 a 1 wreg ]
-"155
+"156
 [v lcdWrite@variable_low variable_low `uc  1 a 1 6 ]
-"154
+"155
 [v lcdWrite@variable_up variable_up `uc  1 a 1 5 ]
-"153
+"154
 [v lcdWrite@character character `uc  1 a 1 wreg ]
-"157
+"158
 [v lcdWrite@character character `uc  1 a 1 7 ]
-"168
+"169
 } 0
-"135
+"136
 [v _lcdPinWrite lcdPinWrite `(v  1 e 1 0 ]
 {
 [v lcdPinWrite@reg reg `uc  1 a 1 wreg ]
-[s S575 _lcd_DBS 1 `uc 1 pinDB4 1 0 :1:0 
+[s S605 _lcd_DBS 1 `uc 1 pinDB4 1 0 :1:0 
 `uc 1 pinDB5 1 0 :1:1 
 `uc 1 pinDB6 1 0 :1:2 
 `uc 1 pinDB7 1 0 :1:3 
 ]
-"136
-[u S580 _lcd_register 1 `uc 1 Val_lcd 1 0 `S575 1 lcd_DBS 1 0 ]
-[v lcdPinWrite@value value `S580  1 a 1 2 ]
-"135
-[v lcdPinWrite@reg reg `uc  1 a 1 wreg ]
 "137
+[u S610 _lcd_register 1 `uc 1 Val_lcd 1 0 `S605 1 lcd_DBS 1 0 ]
+[v lcdPinWrite@value value `S610  1 a 1 2 ]
+"136
+[v lcdPinWrite@reg reg `uc  1 a 1 wreg ]
+"138
 [v lcdPinWrite@reg reg `uc  1 a 1 1 ]
-"148
+"149
 } 0
-"99
+"100
 [v _lcdClockSignal lcdClockSignal `(v  1 e 1 0 ]
 {
-"104
+"105
 } 0
-"22 C:\Users\david\Desktop\PWM2.X\user.c
+"92 C:\Users\david\Desktop\INGENIERIA FISICA ¡\Electrocoagulacion\Electrocoagulacion1\Electrocoagulacion1\mplab\LCD\PWM2.X\main.c
+[v _enviarTrama enviarTrama `(v  1 e 1 0 ]
+{
+[v enviarTrama@datos datos `*.25uc  1 p 2 0 ]
+"106
+} 0
+"22 C:\Users\david\Desktop\INGENIERIA FISICA ¡\Electrocoagulacion\Electrocoagulacion1\Electrocoagulacion1\mplab\LCD\PWM2.X\user.c
 [v _InitApp InitApp `(v  1 e 1 0 ]
 {
 "89
 } 0
-"18 C:\Users\david\Desktop\PWM2.X\system.c
+"18 C:\Users\david\Desktop\INGENIERIA FISICA ¡\Electrocoagulacion\Electrocoagulacion1\Electrocoagulacion1\mplab\LCD\PWM2.X\system.c
 [v _ConfigureOscillator ConfigureOscillator `(v  1 e 1 0 ]
 {
 "27
 } 0
-"25 C:\Users\david\Desktop\PWM2.X\interrupts.c
+"25 C:\Users\david\Desktop\INGENIERIA FISICA ¡\Electrocoagulacion\Electrocoagulacion1\Electrocoagulacion1\mplab\LCD\PWM2.X\interrupts.c
 [v _isr isr `II(v  1 e 1 0 ]
 {
 "52

@@ -3,15 +3,15 @@
   <executable name="dist/HT_PIC16F54/production\PWM2.X.production.hex">
     <memory name="program">
       <units>words</units>
-      <length>8192</length>
-      <used>273</used>
-      <free>7919</free>
+      <length>4096</length>
+      <used>332</used>
+      <free>3764</free>
     </memory>
     <memory name="data">
       <units>bytes</units>
-      <length>1024</length>
-      <used>43</used>
-      <free>981</free>
+      <length>512</length>
+      <used>104</used>
+      <free>408</free>
     </memory>
   </executable>
 </project>

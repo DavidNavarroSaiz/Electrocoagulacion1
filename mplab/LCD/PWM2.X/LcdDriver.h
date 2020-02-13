@@ -29,7 +29,7 @@
 #ifndef LcdDriver_H
 #define LcdDriver_H
 
-#define _XTAL_FREQ 20000000 //Necesaria para los algunos calculos de los delays
+#define _XTAL_FREQ 16000000 //Necesaria para los algunos calculos de los delays
 
 /* 1. Deficion de los pines del microcontrolador usado */
 // 1.1 Nombramiento de los pines que manerajar la lcd

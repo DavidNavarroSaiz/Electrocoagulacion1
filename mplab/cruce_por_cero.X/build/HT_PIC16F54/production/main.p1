@@ -4,6 +4,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _ConfigureOscillator `(v ~T0 @X0 0 ef ]
 "13 user.h
 [v _InitApp `(v ~T0 @X0 0 ef ]
+"37 main.c
+[v _enviarTrama `(v ~T0 @X0 0 ef1`*uc ]
 "2679 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1773.h
 [s S123 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S123 . LATA0 LATA1 LATA2 LATA3 LATA4 LATA5 LATA6 LATA7 ]
@@ -12,6 +14,16 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S122 . . ]
 "2690
 [v _LATAbits `VS122 ~T0 @X0 0 e@268 ]
+"4123
+[v _TX1REG `Vuc ~T0 @X0 0 e@410 ]
+"4612
+[s S232 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S232 . TX9D TRMT BRGH SENDB SYNC TXEN TX9 CSRC ]
+"4611
+[u S231 `S232 1 ]
+[n S231 . . ]
+"4623
+[v _TXSTAbits `VS231 ~T0 @X0 0 e@414 ]
 [; ;xc.h: 18: extern const char __xc8_OPTIM_SPEED;
 [; ;xc.h: 20: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -13552,38 +13564,183 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdbool.h: 15: typedef unsigned char bool;
 [; ;system.h: 19: void ConfigureOscillator(void);
 [; ;user.h: 13: void InitApp(void);
-[v $root$_main `(v ~T0 @X0 0 e ]
-"27 main.c
-[v _main `(v ~T0 @X0 1 ef ]
+"22 main.c
+[v _led `i ~T0 @X0 1 e ]
+[; ;main.c: 22: int led;
+"23
+[v _i `i ~T0 @X0 1 e ]
+[i _i
+-> 0 `i
+]
+[; ;main.c: 23: int i = 0;
+"24
+[v _cont_led `i ~T0 @X0 1 e ]
+[; ;main.c: 24: int cont_led;
+"25
+[v _str1 `uc ~T0 @X0 -> 10 `i e ]
+[v _str2 `uc ~T0 @X0 -> 16 `i e ]
+[v _str3 `uc ~T0 @X0 -> 5 `i e ]
+[v _str4 `uc ~T0 @X0 -> 22 `i e ]
+[; ;main.c: 25: char str1[10], str2[16], str3[5], str4[22];
+[; ;main.c: 26: extern int AD_almacenado;
+"27
+[v _v_sensor `f ~T0 @X0 1 e ]
+[; ;main.c: 27: float v_sensor;
 "28
+[v _temp `f ~T0 @X0 1 e ]
+[; ;main.c: 28: float temp;
+"30
+[v _salida `uc ~T0 @X0 -> 25 `i e ]
+[; ;main.c: 30: char salida [25];
+"31
+[v _saludo `Cuc ~T0 @X0 -> 0 `x e ]
+[i _saludo
+:U ..
+-> 66 `c
+-> 105 `c
+-> 101 `c
+-> 110 `c
+-> 118 `c
+-> 101 `c
+-> 110 `c
+-> 105 `c
+-> 100 `c
+-> 111 `c
+-> 32 `c
+-> 0 `c
+..
+]
+[; ;main.c: 31: const char saludo[] = "Bienvenido ";
+[; ;main.c: 37: void enviarTrama(char *datos);
+[v $root$_main `(v ~T0 @X0 0 e ]
+"38
+[v _main `(v ~T0 @X0 1 ef ]
+"40
 {
-[; ;main.c: 27: void main(void)
-[; ;main.c: 28: {
+[; ;main.c: 38: void main(void)
+[; ;main.c: 40: {
 [e :U _main ]
 [f ]
-[; ;main.c: 30: ConfigureOscillator();
-"30
-[e ( _ConfigureOscillator ..  ]
-[; ;main.c: 33: InitApp();
-"33
-[e ( _InitApp ..  ]
-[; ;main.c: 36: while(1)
-"36
-[e :U 1728 ]
-[; ;main.c: 37: {
-"37
-{
-[; ;main.c: 40: LATAbits.LATA2 = 1;
-"40
-[e = . . _LATAbits 0 2 -> -> 1 `i `uc ]
+[; ;main.c: 42: ConfigureOscillator();
 "42
+[e ( _ConfigureOscillator ..  ]
+[; ;main.c: 45: InitApp();
+"45
+[e ( _InitApp ..  ]
+[; ;main.c: 47: enviarTrama(saludo);
+"47
+[e ( _enviarTrama (1 -> &U _saludo `*uc ]
+[; ;main.c: 48: while(1)
+"48
+[e :U 1728 ]
+[; ;main.c: 49: {
+"49
+{
+[; ;main.c: 54: if(led>10){
+"54
+[e $ ! > _led -> 10 `i 1730  ]
+{
+[; ;main.c: 55: LATAbits.LATA1= ~LATAbits.LATA1;
+"55
+[e = . . _LATAbits 0 1 -> ~ -> . . _LATAbits 0 1 `i `uc ]
+[; ;main.c: 56: led=0;
+"56
+[e = _led -> 0 `i ]
+[; ;main.c: 60: for (i = 0; i < 22; i++) {
+"60
+{
+[e = _i -> 0 `i ]
+[e $ < _i -> 22 `i 1731  ]
+[e $U 1732  ]
+[e :U 1731 ]
+{
+[; ;main.c: 61: TX1REG = saludo[i];
+"61
+[e = _TX1REG *U + &U _saludo * -> -> _i `ui `ux -> -> # *U &U _saludo `ui `ux ]
+[; ;main.c: 62: while (TXSTAbits.TRMT == 0);
+"62
+[e $U 1734  ]
+[e :U 1735 ]
+[e :U 1734 ]
+[e $ == -> . . _TXSTAbits 0 1 `i -> 0 `i 1735  ]
+[e :U 1736 ]
+"63
+}
+"60
+[e ++ _i -> 1 `i ]
+[e $ < _i -> 22 `i 1731  ]
+[e :U 1732 ]
+"63
+}
+"65
+}
+[e :U 1730 ]
+"66
 }
 [e :U 1727 ]
-"36
+"48
 [e $U 1728  ]
 [e :U 1729 ]
-[; ;main.c: 42: }
-[; ;main.c: 44: }
-"44
+[; ;main.c: 63: }
+[; ;main.c: 65: }
+[; ;main.c: 66: }
+[; ;main.c: 68: }
+"68
 [e :UE 1726 ]
+}
+"71
+[v _enviarTrama `(v ~T0 @X0 1 ef1`*uc ]
+{
+[; ;main.c: 71: void enviarTrama(char *datos) {
+[e :U _enviarTrama ]
+[v _datos `*uc ~T0 @X0 1 r1 ]
+[f ]
+[; ;main.c: 75: while (*datos != 0) {
+"75
+[e $U 1738  ]
+[e :U 1739 ]
+{
+[; ;main.c: 76: TX1REG = *datos;
+"76
+[e = _TX1REG *U _datos ]
+[; ;main.c: 77: while (TXSTAbits.TRMT == 0);
+"77
+[e $U 1741  ]
+[e :U 1742 ]
+[e :U 1741 ]
+[e $ == -> . . _TXSTAbits 0 1 `i -> 0 `i 1742  ]
+[e :U 1743 ]
+[; ;main.c: 78: *datos++;
+"78
+[e *U ++ _datos * -> -> 1 `i `x -> -> # *U _datos `i `x ]
+"79
+}
+[e :U 1738 ]
+"75
+[e $ != -> *U _datos `i -> 0 `i 1739  ]
+[e :U 1740 ]
+[; ;main.c: 79: }
+[; ;main.c: 81: TX1REG = 0x0A;
+"81
+[e = _TX1REG -> -> 10 `i `uc ]
+[; ;main.c: 82: while (TXSTAbits.TRMT == 0);
+"82
+[e $U 1744  ]
+[e :U 1745 ]
+[e :U 1744 ]
+[e $ == -> . . _TXSTAbits 0 1 `i -> 0 `i 1745  ]
+[e :U 1746 ]
+[; ;main.c: 83: TX1REG = 0x0D;
+"83
+[e = _TX1REG -> -> 13 `i `uc ]
+[; ;main.c: 84: while (TXSTAbits.TRMT == 0);
+"84
+[e $U 1747  ]
+[e :U 1748 ]
+[e :U 1747 ]
+[e $ == -> . . _TXSTAbits 0 1 `i -> 0 `i 1748  ]
+[e :U 1749 ]
+[; ;main.c: 86: }
+"86
+[e :UE 1737 ]
 }

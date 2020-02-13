@@ -39,7 +39,7 @@
         <platform>3</platform>
       </toolsSet>
       <packs>
-        <pack name="PIC12-16F1xxx_DFP" vendor="Microchip" version="1.1.53"/>
+        <pack name="PIC12-16F1xxx_DFP" vendor="Microchip" version="1.0.42"/>
       </packs>
       <compileType>
         <linkerTool>
@@ -146,7 +146,6 @@
       </HI-TECH-LINK>
       <PICkit3PlatformTool>
         <property key="AutoSelectMemRanges" value="auto"/>
-        <property key="Freeze Peripherals" value="true"/>
         <property key="SecureSegment.SegmentProgramming" value="FullChipProgramming"/>
         <property key="ToolFirmwareFilePath"
                   value="Press to browse for a specific firmware version"/>
@@ -210,13 +209,6 @@
         <property key="periphComp6.gte" value="gt"/>
         <property key="reset.scl" value="false"/>
         <property key="reset.type" value="MCLR"/>
-        <property key="tracecontrol.include.timestamp" value="summarydataenabled"/>
-        <property key="tracecontrol.select" value="0"/>
-        <property key="tracecontrol.stallontracebufferfull" value="false"/>
-        <property key="tracecontrol.timestamp" value="0"/>
-        <property key="tracecontrol.tracebufmax" value="546000"/>
-        <property key="tracecontrol.tracefile" value="defmplabxtrace.log"/>
-        <property key="tracecontrol.traceresetonrun" value="false"/>
         <property key="uart0io.output" value="window"/>
         <property key="uart0io.outputfile" value=""/>
         <property key="uart0io.uartioenabled" value="false"/>
@@ -640,7 +632,7 @@
         <platform>3</platform>
       </toolsSet>
       <packs>
-        <pack name="PIC16Fxxx_DFP" vendor="Microchip" version="1.1.23"/>
+        <pack name="PIC16Fxxx_DFP" vendor="Microchip" version="1.0.9"/>
       </packs>
       <compileType>
         <linkerTool>
@@ -1199,7 +1191,7 @@
         <platform>3</platform>
       </toolsSet>
       <packs>
-        <pack name="PIC16Fxxx_DFP" vendor="Microchip" version="1.1.23"/>
+        <pack name="PIC16Fxxx_DFP" vendor="Microchip" version="1.0.9"/>
       </packs>
       <compileType>
         <linkerTool>
@@ -1738,7 +1730,7 @@
         <platform>3</platform>
       </toolsSet>
       <packs>
-        <pack name="PIC16Fxxx_DFP" vendor="Microchip" version="1.1.23"/>
+        <pack name="PIC16Fxxx_DFP" vendor="Microchip" version="1.0.9"/>
       </packs>
       <compileType>
         <linkerTool>
@@ -2297,7 +2289,7 @@
         <platform>3</platform>
       </toolsSet>
       <packs>
-        <pack name="PIC16Fxxx_DFP" vendor="Microchip" version="1.1.23"/>
+        <pack name="PIC16Fxxx_DFP" vendor="Microchip" version="1.0.9"/>
       </packs>
       <compileType>
         <linkerTool>
@@ -2836,7 +2828,7 @@
         <platform>3</platform>
       </toolsSet>
       <packs>
-        <pack name="PIC16Fxxx_DFP" vendor="Microchip" version="1.1.23"/>
+        <pack name="PIC16Fxxx_DFP" vendor="Microchip" version="1.0.9"/>
       </packs>
       <compileType>
         <linkerTool>
@@ -3395,7 +3387,7 @@
         <platform>3</platform>
       </toolsSet>
       <packs>
-        <pack name="PIC12-16F1xxx_DFP" vendor="Microchip" version="1.1.53"/>
+        <pack name="PIC12-16F1xxx_DFP" vendor="Microchip" version="1.0.42"/>
       </packs>
       <compileType>
         <linkerTool>
@@ -3934,7 +3926,7 @@
         <platform>3</platform>
       </toolsSet>
       <packs>
-        <pack name="PIC12-16F1xxx_DFP" vendor="Microchip" version="1.1.53"/>
+        <pack name="PIC12-16F1xxx_DFP" vendor="Microchip" version="1.0.42"/>
       </packs>
       <compileType>
         <linkerTool>
@@ -4493,7 +4485,7 @@
         <platform>3</platform>
       </toolsSet>
       <packs>
-        <pack name="PIC12-16F1xxx_DFP" vendor="Microchip" version="1.1.53"/>
+        <pack name="PIC12-16F1xxx_DFP" vendor="Microchip" version="1.0.42"/>
       </packs>
       <compileType>
         <linkerTool>
@@ -5032,7 +5024,7 @@
         <platform>3</platform>
       </toolsSet>
       <packs>
-        <pack name="PIC12-16F1xxx_DFP" vendor="Microchip" version="1.1.53"/>
+        <pack name="PIC12-16F1xxx_DFP" vendor="Microchip" version="1.0.42"/>
       </packs>
       <compileType>
         <linkerTool>

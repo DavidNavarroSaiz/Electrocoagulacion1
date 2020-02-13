@@ -1,14 +1,14 @@
 /******************************************************************************/
 /* Files to Include                                                           */
 /******************************************************************************/
-#define _XTAL_FREQ 20000000
+#define _XTAL_FREQ 16000000
 
 #if defined(__XC)
     #include <xc.h>         /* XC8 General Include File */
 #elif defined(HI_TECH_C)
     #include <htc.h>        /* HiTech General Include File */
 #endif
-#if defined(__XC) || defined(HI_TECH_C)
+//#if defined(__XC) || defined(HI_TECH_C)
 #include <stdint.h>        /* For uint8_t definition */
 #include <stdbool.h>        /* For true/false definition */
 #include <stdio.h>
@@ -28,14 +28,14 @@
 //extern int AD_almacenado;
 //float v_sensor;// voltaje sensor por bit 
 //float temp; //temperatura del sensor
-//const char mensaje [] = "valor temp en C:" ;
+const char mensaje [] = "hello:" ;
 //char salida [25];
 /* i.e. uint8_t <variable_name>; */
 
 /******************************************************************************/
 /* Main Program                                                               */
 /******************************************************************************/
-//void enviarTrama(char *datos);
+void enviarTrama(char *datos);
 
 //InitLCD();
 void main(void)
@@ -50,10 +50,15 @@ void main(void)
     
            
     while (1) {
-        
-        lcdWriteMessage("hola perros");
-//        lcdWriteMessage("HOLA");
-        __delay_ms(500);
+        lcdClear();  
+//        lcdWriteMessage("hola perros");
+        lcdWriteMessage("HOLA");
+        lcdMoveCursorTo(1);
+        for(int i=0; i<=2000; i++){
+        NOP();
+        enviarTrama(mensaje);
+
+    }
 //        lcdClear();
 //        __delay_ms(500);
 //        lcdHome();
@@ -84,18 +89,18 @@ void main(void)
 
 }
 
-//void enviarTrama(char *datos) {
-//
-//    //saludo[0] = *datos:
-//
-//    while (*datos != 0) {
-//        TX1REG = *datos;
-//        while (TX1STAbits.TRMT == 0);
-//        *datos++;
-//    }
-//
-//    TX1REG = 0x0A;
-//    while (TX1STAbits.TRMT == 0);
-//    TX1REG = 0x0D;
-//    while (TX1STAbits.TRMT == 0);
-//}
+void enviarTrama(char *datos) {
+
+    //saludo[0] = *datos:
+
+    while (*datos != 0) {
+        TX1REG = *datos;
+        while (TX1STAbits.TRMT == 0);
+        *datos++;
+    }
+
+    TX1REG = 0x0A;
+    while (TX1STAbits.TRMT == 0);
+    TX1REG = 0x0D;
+    while (TX1STAbits.TRMT == 0);
+}

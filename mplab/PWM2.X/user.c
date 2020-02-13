@@ -37,21 +37,21 @@ void InitApp(void)
      TRISCbits.TRISC7=1;
      ANSELCbits.ANSC7=0;
      WPUCbits.WPUC7=0;
-     RXPPS=010111; //010 PUERTO C, 111 PORT C7
+//     RXPPS=010111; //010 PUERTO C, 111 PORT C7
              
      //configuracion para TX, output
      TRISCbits.TRISC6=0;
      ANSELCbits.ANSC6=0;
      WPUCbits.WPUC6 = 0;
-     RC6PPS= 100100; 
+//     RC6PPS= 100100; 
      /* Initialize peripherals */
      
     /* Enable interrupts */
     INTCONbits.GIE=1;//global interruption enable
     INTCONbits.PEIE=1;//Peripheral Interrupt Enable bit, 
-    PIE1bits.ADIE=1; //analogo digital interruption enable on
+    PIE1bits.ADIE=0; //analogo digital interruption enable on
     INTCONbits.TMR0IE=1;//Timer0 Overflow Interrupt Enable bit, habilita la interruptcion del timer0
-    PIE1bits.TXIE= 1;//transmition interrupt
+    PIE1bits.TXIE= 0;//transmition interrupt
     
     /* AD mocdule configuration*/
     ADCON1bits.ADCS=0b011; //ADC Conversion Clock Select bits, selecciona el oscilador interno
@@ -70,15 +70,30 @@ void InitApp(void)
     //habilitacion  del trasmitter
     //primero: configuracion del Baud Rate generator
     BAUD1CONbits.BRG16= 0;
-    TX1STAbits.BRGH= 0;
+    TX1STAbits.BRGH= 1;
     TX1STAbits.SYNC= 0;
-    SP1BRG = 25;
-    
+    SP1BRG = 25;    
     RC1STAbits.SPEN=1; //habilitacion del serial port
     TX1STAbits.TX9=0;//no habilita 9 bits
     TX1STAbits.TXEN=1; //habilita el trasmitter
-    
     //habilitacion  del receiver
     RC1STAbits.CREN=1; // habilitar reception
+//    TRISCbits.TRISC7= 1 ;// entrada Rx
+//    TRISCbits.TRISC6 = 0 ; //salida tx
+    PIE1bits.RCIE = 1; //Habilitamos interrupciones recepcion UART//
+     
+    RC1STAbits.SPEN = 1;
+    RC1STAbits.CREN = 1 ;
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 }
 

@@ -6,12 +6,27 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _InitApp `(v ~T0 @X0 0 ef ]
 "115 LcdDriver.h
 [v _initLCD `(v ~T0 @X0 0 ef ]
+"120
+[v _lcdClear `(v ~T0 @X0 0 ef ]
 "121
 [v _lcdWriteMessage `(v ~T0 @X0 0 ef1`*Cuc ]
-[v F11826 `(v ~T0 @X0 1 tf1`ul ]
-"92 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic.h
-[v __delay `JF11826 ~T0 @X0 0 e ]
-[p i __delay ]
+"123
+[v _lcdMoveCursorTo `(v ~T0 @X0 0 ef1`uc ]
+"31 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic.h
+[v ___nop `(v ~T0 @X0 0 ef ]
+[p i ___nop ]
+"38 main.c
+[v _enviarTrama `(v ~T0 @X0 0 ef1`*uc ]
+"4123 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1776.h
+[v _TX1REG `Vuc ~T0 @X0 0 e@410 ]
+"4503
+[s S228 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S228 . TX9D TRMT BRGH SENDB SYNC TXEN TX9 CSRC ]
+"4502
+[u S227 `S228 1 ]
+[n S227 . . ]
+"4514
+[v _TX1STAbits `VS227 ~T0 @X0 0 e@414 ]
 [; ;xc.h: 18: extern const char __xc8_OPTIM_SPEED;
 [; ;xc.h: 20: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -13710,8 +13725,23 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;math.h: 53: extern double fmod(double, double);
 [; ;math.h: 54: extern double trunc(double);
 [; ;math.h: 55: extern double round(double);
+"31 main.c
+[v _mensaje `Cuc ~T0 @X0 -> 0 `x e ]
+[i _mensaje
+:U ..
+-> 104 `c
+-> 101 `c
+-> 108 `c
+-> 108 `c
+-> 111 `c
+-> 58 `c
+-> 0 `c
+..
+]
+[; ;main.c: 31: const char mensaje [] = "hello:" ;
+[; ;main.c: 38: void enviarTrama(char *datos);
 [v $root$_main `(v ~T0 @X0 0 e ]
-"41 main.c
+"41
 [v _main `(v ~T0 @X0 1 ef ]
 "42
 {
@@ -13732,22 +13762,105 @@ Version 3.2 HI-TECH Software Intermediate Code
 "52
 [e :U 1735 ]
 {
-[; ;main.c: 54: lcdWriteMessage("hola perros");
-"54
+[; ;main.c: 53: lcdClear();
+"53
+[e ( _lcdClear ..  ]
+[; ;main.c: 55: lcdWriteMessage("HOLA");
+"55
 [e ( _lcdWriteMessage (1 :s 1C ]
-[; ;main.c: 56: _delay((unsigned long)((500)*(20000000/4000.0)));
+[; ;main.c: 56: lcdMoveCursorTo(1);
 "56
-[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
+[e ( _lcdMoveCursorTo (1 -> -> 1 `i `uc ]
+[; ;main.c: 57: for(int i=0; i<=2000; i++){
+"57
+{
+[v _i `i ~T0 @X0 1 a ]
+[e = _i -> 0 `i ]
+[e $ <= _i -> 2000 `i 1737  ]
+[e $U 1738  ]
+[e :U 1737 ]
+{
+[; ;main.c: 58: __nop();
+"58
+[e ( ___nop ..  ]
+[; ;main.c: 59: enviarTrama(mensaje);
+"59
+[e ( _enviarTrama (1 -> &U _mensaje `*uc ]
 "61
+}
+"57
+[e ++ _i -> 1 `i ]
+[e $ <= _i -> 2000 `i 1737  ]
+[e :U 1738 ]
+"61
+}
+"66
 }
 [e :U 1734 ]
 "52
 [e $U 1735  ]
 [e :U 1736 ]
 [; ;main.c: 61: }
-[; ;main.c: 85: }
-"85
+[; ;main.c: 66: }
+[; ;main.c: 90: }
+"90
 [e :UE 1733 ]
 }
-[a 1C 104 111 108 97 32 112 101 114 114 111 115 0 ]
+"92
+[v _enviarTrama `(v ~T0 @X0 1 ef1`*uc ]
+{
+[; ;main.c: 92: void enviarTrama(char *datos) {
+[e :U _enviarTrama ]
+[v _datos `*uc ~T0 @X0 1 r1 ]
+[f ]
+[; ;main.c: 96: while (*datos != 0) {
+"96
+[e $U 1741  ]
+[e :U 1742 ]
+{
+[; ;main.c: 97: TX1REG = *datos;
+"97
+[e = _TX1REG *U _datos ]
+[; ;main.c: 98: while (TX1STAbits.TRMT == 0);
+"98
+[e $U 1744  ]
+[e :U 1745 ]
+[e :U 1744 ]
+[e $ == -> . . _TX1STAbits 0 1 `i -> 0 `i 1745  ]
+[e :U 1746 ]
+[; ;main.c: 99: *datos++;
+"99
+[e *U ++ _datos * -> -> 1 `i `x -> -> # *U _datos `i `x ]
+"100
+}
+[e :U 1741 ]
+"96
+[e $ != -> *U _datos `i -> 0 `i 1742  ]
+[e :U 1743 ]
+[; ;main.c: 100: }
+[; ;main.c: 102: TX1REG = 0x0A;
+"102
+[e = _TX1REG -> -> 10 `i `uc ]
+[; ;main.c: 103: while (TX1STAbits.TRMT == 0);
+"103
+[e $U 1747  ]
+[e :U 1748 ]
+[e :U 1747 ]
+[e $ == -> . . _TX1STAbits 0 1 `i -> 0 `i 1748  ]
+[e :U 1749 ]
+[; ;main.c: 104: TX1REG = 0x0D;
+"104
+[e = _TX1REG -> -> 13 `i `uc ]
+[; ;main.c: 105: while (TX1STAbits.TRMT == 0);
+"105
+[e $U 1750  ]
+[e :U 1751 ]
+[e :U 1750 ]
+[e $ == -> . . _TX1STAbits 0 1 `i -> 0 `i 1751  ]
+[e :U 1752 ]
+[; ;main.c: 106: }
+"106
+[e :UE 1740 ]
+}
+[a 1C 72 79 76 65 0 ]
 

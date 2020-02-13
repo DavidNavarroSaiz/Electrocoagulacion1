@@ -15,6 +15,19 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S122 . . ]
 "2690
 [v _LATAbits `VS122 ~T0 @X0 0 e@268 ]
+"357
+[s S26 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S26 . IOCIF INTF TMR0IF IOCIE INTE TMR0IE PEIE GIE ]
+"367
+[s S27 :2 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
+[n S27 . . T0IF . T0IE ]
+"356
+[u S25 `S26 1 `S27 1 ]
+[n S25 . . . ]
+"374
+[v _INTCONbits `VS25 ~T0 @X0 0 e@11 ]
+"17 interrupts.c
+[v _led `i ~T0 @X0 0 e ]
 [; ;xc.h: 18: extern const char __xc8_OPTIM_SPEED;
 [; ;xc.h: 20: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -13553,10 +13566,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdint.h: 289: typedef int16_t intptr_t;
 [; ;stdint.h: 294: typedef uint16_t uintptr_t;
 [; ;stdbool.h: 15: typedef unsigned char bool;
+[; ;interrupts.c: 17: extern int led;
 [v $root$_isr `(v ~T0 @X0 0 e ]
-[v F11868 `(v ~T0 @X0 1 tf ]
+[v F11869 `(v ~T0 @X0 1 tf ]
 "23 interrupts.c
-[v _isr `IF11868 ~T0 @X0 1 e ]
+[v _isr `IF11869 ~T0 @X0 1 e ]
 "24
 {
 [; ;interrupts.c: 23: void interrupt isr(void)
@@ -13574,9 +13588,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;interrupts.c: 30: PIR3bits.ZCDIF=0;
 "30
 [e = . . _PIR3bits 0 4 -> -> 0 `i `uc ]
-[; ;interrupts.c: 31: LATAbits.LATA1 = 0 ;
-"31
-[e = . . _LATAbits 0 1 -> -> 0 `i `uc ]
 "32
 }
 [; ;interrupts.c: 32: }
@@ -13588,9 +13599,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;interrupts.c: 34: PIR3bits.ZCDIF=0;
 "34
 [e = . . _PIR3bits 0 4 -> -> 0 `i `uc ]
-[; ;interrupts.c: 35: LATAbits.LATA1=1;
-"35
-[e = . . _LATAbits 0 1 -> -> 1 `i `uc ]
 "37
 }
 [e :U 1729 ]
@@ -13599,7 +13607,21 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U 1727 ]
 [; ;interrupts.c: 37: }
 [; ;interrupts.c: 38: }
-[; ;interrupts.c: 41: }
+[; ;interrupts.c: 41: if (INTCONbits.TMR0IF==1){
 "41
+[e $ ! == -> . . _INTCONbits 0 2 `i -> 1 `i 1730  ]
+{
+[; ;interrupts.c: 43: INTCONbits.TMR0IF=0;
+"43
+[e = . . _INTCONbits 0 2 -> -> 0 `i `uc ]
+[; ;interrupts.c: 44: led= led+1;
+"44
+[e = _led + _led -> 1 `i ]
+"47
+}
+[e :U 1730 ]
+[; ;interrupts.c: 47: }
+[; ;interrupts.c: 58: }
+"58
 [e :UE 1726 ]
 }

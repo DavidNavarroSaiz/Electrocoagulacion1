@@ -20001,7 +20001,13 @@ extern double fmod(double, double);
 extern double trunc(double);
 extern double round(double);
 
-# 41 "main.c"
+# 31 "main.c"
+const char mensaje [] = "hello:" ;
+
+# 38
+void enviarTrama(char *datos);
+
+
 void main(void)
 {
 
@@ -20014,16 +20020,36 @@ initLCD();
 
 
 while (1) {
+lcdClear();
 
-lcdWriteMessage("hola perros");
+lcdWriteMessage("HOLA");
+lcdMoveCursorTo(1);
+for(int i=0; i<=2000; i++){
+__nop();
+enviarTrama(mensaje);
 
-_delay((unsigned long)((500)*(20000000/4000.0)));
+}
 
 
 
 
 }
 
-# 85
+# 90
 }
 
+void enviarTrama(char *datos) {
+
+
+
+while (*datos != 0) {
+TX1REG = *datos;
+while (TX1STAbits.TRMT == 0);
+*datos++;
+}
+
+TX1REG = 0x0A;
+while (TX1STAbits.TRMT == 0);
+TX1REG = 0x0D;
+while (TX1STAbits.TRMT == 0);
+}

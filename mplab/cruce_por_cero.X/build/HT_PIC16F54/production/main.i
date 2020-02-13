@@ -19761,8 +19761,22 @@ void ConfigureOscillator(void);
 # 13 "user.h"
 void InitApp(void);
 
-# 27 "main.c"
+# 22 "main.c"
+int led;
+int i = 0;
+int cont_led;
+char str1[10], str2[16], str3[5], str4[22];
+extern int AD_almacenado;
+float v_sensor;
+float temp;
+
+char salida [25];
+const char saludo[] = "Bienvenido ";
+
+# 37
+void enviarTrama(char *datos);
 void main(void)
+
 {
 
 ConfigureOscillator();
@@ -19770,14 +19784,43 @@ ConfigureOscillator();
 
 InitApp();
 
-
+enviarTrama(saludo);
 while(1)
 {
 
 
-LATAbits.LATA2 = 1;
 
+
+if(led>10){
+LATAbits.LATA1= ~LATAbits.LATA1;
+led=0;
+
+
+
+for (i = 0; i < 22; i++) {
+TX1REG = saludo[i];
+while (TXSTAbits.TRMT == 0);
+}
+
+}
 }
 
 }
 
+
+void enviarTrama(char *datos) {
+
+
+
+while (*datos != 0) {
+TX1REG = *datos;
+while (TXSTAbits.TRMT == 0);
+*datos++;
+}
+
+TX1REG = 0x0A;
+while (TXSTAbits.TRMT == 0);
+TX1REG = 0x0D;
+while (TXSTAbits.TRMT == 0);
+
+}

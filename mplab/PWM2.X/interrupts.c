@@ -15,12 +15,16 @@
 /* Interrupt Routines                                                         */
 /******************************************************************************/
 int AD_almacenado;
-char band_aux;
+int band_aux;
 int led;
+const char mensaje [] = "valor temp en C:" ;
+int i ;
+extern char salida [25];
 /* Baseline devices don't have interrupts. Note that some PIC16's 
  * are baseline devices.  Unfortunately the baseline detection macro is 
  * _PIC12 */
 #ifndef _PIC12
+void enviarTrama(char *datos);
 
 void interrupt isr(void)
 {
@@ -35,25 +39,38 @@ void interrupt isr(void)
          
          INTCONbits.TMR0IF=0; //baja la bandera del timer0
          led= led+1;
-         ADCON0bits.GO= 0; //Inicia la conversion AD
+//         ADCON0bits.GO= 0; //Inicia la conversion AD
          band_aux= 1;
-              if(led>1){
-                LATAbits.LATA1= ~LATAbits.LATA1;
-                led=0;
-                }
-     }
+         
+         
+              
+            }
     /* Determine which flag generated the interrupt */
 //     if (PIR1bits.ADIF==1){
 ////        AD_almacenado= ADRES;
 //        PIR1bits.ADIF=0;
-//     
+     
      
      }
     
-
-
-
-//}
 #endif
 
 
+//}
+
+
+void enviarTrama(char *datos) {
+
+    //saludo[0] = *datos:
+
+    while (*datos != 0) {
+        TX1REG = *datos;
+        while (TXSTAbits.TRMT == 0);
+        *datos++;
+    }
+
+    TX1REG = 0x0A;
+    while (TXSTAbits.TRMT == 0);
+    TX1REG = 0x0D;
+    while (TXSTAbits.TRMT == 0);
+}
